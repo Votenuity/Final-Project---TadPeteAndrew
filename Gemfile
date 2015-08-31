@@ -15,6 +15,12 @@ gem 'bootstrap_form'
 gem 'rails_12factor', group: :production
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise'
+gem 'wicked'
+gem "acts_as_follower"
+gem 'pg_search'
+gem 'friendly_id'
+gem "paperclip"
 
 
 group :development, :test do
