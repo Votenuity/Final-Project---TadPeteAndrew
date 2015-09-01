@@ -21,7 +21,7 @@ gem "acts_as_follower"
 gem 'pg_search'
 gem 'friendly_id'
 gem "paperclip"
-
+gem "cancan"
 
 group :development, :test do
   gem 'pry-byebug'

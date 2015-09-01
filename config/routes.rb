@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :candidates
   devise_for :users
   resources :sign_up_steps
   # The priority is based upon order of creation: first created -> highest priority.
