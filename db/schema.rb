@@ -44,17 +44,25 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "statements", force: :cascade do |t|
-    t.text     "stance"
+  create_table "races", force: :cascade do |t|
+    t.string   "title"
+    t.string   "district"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "statements", force: :cascade do |t|
+    t.text     "stance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.integer  "issue_id"
-    t.integer  "statements_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "statement_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +84,10 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.text     "bio"
     t.string   "profile_image"
     t.string   "party"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

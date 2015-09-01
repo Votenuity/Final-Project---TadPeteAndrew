@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FinalProject</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Votenuity</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+              <%= link_to "Votenuity", root_path, class: "navbar-brand" %>
+          </div>
 
-<%= yield %>
+          <div id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link' %></li>
+                <li><%= link_to "Sign In", user_session_path, :class => 'navbar-link' %></li>
+              <% end %>
+              <%= form_tag "#", :method => :get, class: "navbar-form navbar-left" do %>
+                <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search...', :autocomplete => :off, class: "form-control"  %>
+                <%= submit_tag "Search", class: "btn btn-primary" %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-</body>
+      <!-- Shows errors when one is present -->
+      <div class="container">
+        <div class="text-center col-xs-3 col-xs-offset-9">
+          <% if flash[:error] %>
+            <p class='error'><%=h flash[:error] %></p>
+          <% end %>
+          <% if flash[:notice] %>
+            <p class='notice'><%=h flash[:notice] %></p>
+          <% end %>
+        </div>
+
+        <%= yield %>
+
+      </div>
+    </div>
+    <div class="footer"></div>
+  </body>
 </html>
