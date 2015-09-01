@@ -1,0 +1,8 @@
+User Name
+
+<%= form_for @user, url:wizard_path do |f| %>
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+<% end %>
