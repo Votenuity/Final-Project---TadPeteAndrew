@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_attached_file :picture, styles: {medium: "300x300", thumb: "100x100"}
+
   ROLES = %w[voter admin candidate]
-  
+
 end
