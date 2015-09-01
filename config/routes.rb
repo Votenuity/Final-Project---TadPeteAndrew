@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :legislators
   resources :candidates
   devise_for :users
   resources :sign_up_steps
