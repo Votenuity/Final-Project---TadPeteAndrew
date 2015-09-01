@@ -16,7 +16,7 @@ class SignUpStepsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :user_name, :bio, :avatar_file_name)
+    params.require(:user).permit(:first_name, :last_name, :bio, :avatar)
   end
 
   def finish_wizard_path

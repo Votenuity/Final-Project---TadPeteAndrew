@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
+  has_attached_file :avatar, styles: {medium: "300x300", thumb: "100x100"}
   has_many :statements
   before_create :set_default_role
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_attached_file :picture, styles: {medium: "300x300", thumb: "100x100"}
+
 
   ROLES = %w[voter admin candidate]
 
