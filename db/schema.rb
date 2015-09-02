@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901203946) do
+ActiveRecord::Schema.define(version: 20150902193140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",                   null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "follower_id",                     null: false
+    t.string   "follower_type",                   null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "issues", force: :cascade do |t|
     t.string   "name"
@@ -31,17 +44,6 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.string   "fullName",       default: ""
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-  end
-
-  create_table "legislatures", force: :cascade do |t|
-    t.string   "position_title"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "party"
-    t.string   "link"
-    t.string   "fullName"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "races", force: :cascade do |t|
