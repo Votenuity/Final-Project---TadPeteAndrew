@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :legislators
   devise_for :users, controllers: {registrations: "registrations"}
   resources :sign_up_steps
   resources :races
