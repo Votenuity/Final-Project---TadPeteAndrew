@@ -5,13 +5,15 @@ class User < ActiveRecord::Base
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  acts_as_followable
+  acts_as_follower
 
   ROLES = %w[voter admin candidate]
 
   def statements_by_issue(issue)
     self.statements.joins(:issues).where("issues.name = ?", issue)
   end
+
 
 
   private
