@@ -1,12 +1,38 @@
-<div class="row">
+<div class="text-center">
+  <h1 class=""><%= @race.title %></h1>
+</div>
+
+<div class="row" id="runners">
   <% @candidates.each do |runner| %>
-  <div class="col-lg-4 col-sm-6 text-center">
-    <%= image_tag(runner.profile_image, class: "img-circle img-responsive img-center") %>
-    <h3><%= runner.first_name %>  <%= runner.last_name %></h3>
-    <h4>Unemployment</h4>
-    <p><%= runner.statements_by_issue("Unemployment") %></p>
-    <h4>Space</h4>
-    <p><%= runner.statements_by_issue("Spaaaaaaace") %></p>
+  <div class="col-xs-4">
+    <div class="profile-wrapper">
+      <div class="profile-inner" size="200x200"
+        style="background: url(<%= runner.profile_image || runner.avatar.url(:medium) %>) no-repeat center center";
+          style="background-size:cover">
+          <%= image_tag(runner.profile_image || runner.avatar.url(:medium), class: "small-thumb") %>
+      </div>
+      <div class="description">
+         <h3><%= runner.first_name %> <%= runner.last_name %></h3>
+          <h5> <strong><%= runner.party %></strong></h5>
+          <hr>
+          <a href="#" class="btn btn-info btn-block">See Full Profile + </a>
+      </div>
+       </div>
+      <!-- PROFILE WRAPPER END -->
+      <br>
   </div>
   <% end %>
 </div>
+
+<% @issues.each do |issue| %>
+<div class="col-xs-12">
+<h1 class="text-center"><strong><%= issue.name %></strong></h1>
+</div>
+<div class="row" id="stance">
+    <% @candidates.each do |stance| %>
+      <div class="col-xs-4 text-center">
+        <p class="lead"><b><%= stance.statement_by_issue(issue.name) %></b></p>
+      </div>
+    <% end %>
+</div>
+<% end %>
