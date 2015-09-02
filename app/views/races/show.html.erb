@@ -1,2 +1,12 @@
-<h1>Races#show</h1>
-<p>Find me in app/views/races/show.html.erb</p>
+<div class="row">
+  <% @candidates.each do |runner| %>
+  <div class="col-lg-4 col-sm-6 text-center">
+    <%= image_tag(runner.profile_image, class: "img-circle img-responsive img-center") %>
+    <h3><%= runner.first_name %>  <%= runner.last_name %></h3>
+    <h4>Unemployment</h4>
+    <p><%= runner.statements_by_issue("Unemployment") %></p>
+    <h4>Space</h4>
+    <p><%= runner.statements_by_issue("Spaaaaaaace") %></p>
+  </div>
+  <% end %>
+</div>

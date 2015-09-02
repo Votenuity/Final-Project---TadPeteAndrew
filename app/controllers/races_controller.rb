@@ -6,7 +6,7 @@ class RacesController < ApplicationController
   end
 
   def show
-
+    @candidates = User.where("role = ?", "candidate")
   end
 
   def create
@@ -16,7 +16,8 @@ class RacesController < ApplicationController
   private
 
   def set_race
-    @race = Race.find(params[:id])
+    @race = Race.friendly.find_by(id: params[:id])
   end
+
 
 end

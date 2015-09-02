@@ -6,13 +6,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   ROLES = %w[voter admin candidate]
 
+  #pulls a the statements by the candiate from the db from that issue.
   def statements_by_issue(issue)
-    self.statements.joins(:issues).where("issues.name = ?", issue)
+    self.statements.joins(:issues).where("issues.name = ?", issue).first.stance
   end
-
 
   private
 

@@ -1,2 +1,4 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
+
+<% @races.each do |race| %>
+  <%= link_to race.title, race_path(race) %>, District: <%= race.district %>
+<% end %>
