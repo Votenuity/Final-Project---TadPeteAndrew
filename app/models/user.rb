@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
     self.statements.joins(:issues).where("issues.name = ?", issue)
   end
 
-
+  def full_name
+    self.first_name + " " + self.last_name
+  end
 
   private
 
