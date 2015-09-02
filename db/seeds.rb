@@ -10,15 +10,40 @@ require "json"
 
 # Seed lines go here
 
-legislators_hash = parsed("https://api.iga.in.gov/2014/chambers/house/legislators")
+
+# Grabs JSON from API, parses in to array of hashes
+house_hash = parsed("https://api.iga.in.gov/2014/chambers/house/legislators?per_page=102")
+senate_hash = parsed("https://api.iga.in.gov/2014/chambers/senate/legislators?per_page=50")
 
 
+# Assigns each legislator member to a spot in the database
+house_hash[:items].each do |house|
+
+  Legislator.create(position_title: house["position_title"],
+                    firstName: house["firstName"],
+                    lastName: house["lastName"],
+                    party: house["party"],
+                    link: house["link"],
+                    fullName: house["fullName"])
+
+end
+
+senate_hash[:items].each do |senate|
+
+  Legislator.create(position_title: senate["position_title"],
+                    firstName: senate["firstName"],
+                    lastName: senate["lastName"],
+                    party: senate["party"],
+                    link: senate["link"],
+                    fullName: senate["fullName"])
+
+end
 
 # Takes an endpoint and spits out Hash with symbols
 def parsed(end_point)
 
-  res = hparty(end_point)
-  parsed = parse_me(res).symbolize_keys
+  response = hparty(end_point)
+  parsed = parse_me(response).symbolize_keys
 
 end
 
