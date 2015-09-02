@@ -8,4 +8,8 @@
 <% end %>
 
 <%= link_to 'Profile', user_path(:id => @user.id) %>
+
+<% current_user.all_follows.each do |follow| %>
+<%= link_to follow.followable.full_name, user_path(:id => follow.followable_id) %>
+<% end %>
 </div>
