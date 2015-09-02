@@ -22,6 +22,7 @@ gem 'pg_search'
 gem 'friendly_id'
 gem "paperclip"
 gem "cancan"
+gem "httparty"
 
 group :development, :test do
   gem 'pry-byebug'

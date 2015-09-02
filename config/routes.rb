@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :legislators
   devise_for :users, controllers: {registrations: "registrations"}
   resources :users, :only => [:index, :show]
   post 'users/follow' => 'users#follow', as: :follow

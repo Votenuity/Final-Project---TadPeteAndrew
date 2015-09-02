@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20150902193140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "legislators", force: :cascade do |t|
+    t.string   "position_title", default: ""
+    t.string   "firstName",      default: ""
+    t.string   "lastName",       default: ""
+    t.string   "party",          default: ""
+    t.string   "link",           default: ""
+    t.string   "fullName",       default: ""
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "races", force: :cascade do |t|
     t.string   "title"
     t.string   "district"
