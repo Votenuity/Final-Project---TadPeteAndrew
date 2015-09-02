@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, styles: {medium: "300x300", thumb: "100x100"}
+  has_attached_file :avatar, styles: {medium: "300x300>", thumb: "100x100>"}
   has_many :statements
   before_create :set_default_role
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
