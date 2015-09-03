@@ -1,14 +1,12 @@
+<%= image_tag @user.avatar.url(:thumb) %>
+<div class="user-header">
+<!-- possesive is a helper method in the user_helper.rb file -->
+  <h1><%= possessive(@user.full_name)%>
+    Votenunity</h1>
 
-<div class = "user-header">
-<%if @user.last_name.ends_with? "s" %>
-  <h1><%=@user.first_name%> <%=@user.last_name%>' Votenuity</h1>
-<% else %>
-  <h1><%=@user.first_name%> <%=@user.last_name%>'s Votenuity</h1>
-<% end %>
+  <%= link_to 'Profile', user_path(:id => @user.id) %>
 
-<%= link_to 'Profile', user_path(:id => @user.id) %>
-
-<% current_user.all_follows.each do |follow| %>
-<%= link_to follow.followable.full_name, user_path(:id => follow.followable_id) %>
-<% end %>
+  <% current_user.all_follows.each do |follow| %>
+  <%= link_to follow.followable.full_name, user_path(:id => follow.followable_id) %>
+  <% end %>
 </div>
