@@ -1,2 +1,6 @@
-<h1>Races#show</h1>
-<p>Find me in app/views/races/show.html.erb</p>
+<div class="text-center">
+  <h1 class=""><strong><%= @race.title %></strong></h1>
+</div>
+
+<%= render partial: "races/runner" %>
+<%= render partial: "races/stances" %>

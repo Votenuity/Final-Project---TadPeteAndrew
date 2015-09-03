@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902193140) do
+ActiveRecord::Schema.define(version: 20150902222536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,13 @@ ActiveRecord::Schema.define(version: 20150902193140) do
 
   create_table "races", force: :cascade do |t|
     t.string   "title"
-    t.string   "district"
+    t.integer  "district"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
+
+  add_index "races", ["slug"], name: "index_races_on_slug", unique: true, using: :btree
 
   create_table "statements", force: :cascade do |t|
     t.text     "stance"
@@ -60,12 +63,17 @@ ActiveRecord::Schema.define(version: 20150902193140) do
     t.integer  "user_id"
   end
 
+  add_index "statements", ["user_id"], name: "index_statements_on_user_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.integer  "issue_id"
     t.integer  "statement_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "topics", ["issue_id"], name: "index_topics_on_issue_id", using: :btree
+  add_index "topics", ["statement_id"], name: "index_topics_on_statement_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -90,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150902193140) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "race_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
