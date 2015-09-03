@@ -24,17 +24,42 @@ body {
 
 p {
   margin: 5px;
+  text-shadow:20px lightgray;
 }
+
 
 .navbar-inverse {
-  background: #50bfbf;
+  background: #00688B;
+  box-shadow: 0 10px 0 #c40000, 0 0px 0;
 }
 
- .img-center {
-    margin: 5px;
-    height: 325px;
-    width: 305px;
-    border-radius: 15px 15px 15px 15px !important;
+.navbar-inverse a{
+  color: white !important;
+  font-size: 16px;
+}
+
+.navbar-inverse .navbar-link {
+  padding-top: 18px;
+  color: white;
+  font-size: 16px;
+}
+
+.dropdown-menu a{
+  color: black !important;
+}
+
+.img-center {
+  margin: 5px;
+  height: 325px;
+  width: 305px;
+  border-radius: 15px 15px 15px 15px !important;
+
+}
+
+#background {
+  background-color: #F0F0F0;
+  padding: 0px 45px 0px 45px;
+  border-radius: 10px 10px 10px 10px !important;
 
 }
 
@@ -42,38 +67,37 @@ p {
   border-radius: 10px 10px 10px 10px !important;
   -moz-border-radius: 10px 10px 10px 10px !important;
   -webkit-border-radius: 10px 10px 10px 10px !important;
-  border: 10px solid #50bfbf;
+  border: 10px solid #00688B;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin-bottom: 20px;
   display: flex;
+  background-color: white;
 }
 
 #runners {
-  border-radius: 10px 10px 10px 10px !important;
-  -moz-border-radius: 10px 10px 10px 10px !important;
-  -webkit-border-radius: 10px 10px 10px 10px !important;
-  border: 3px solid #50bfbf;
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin-bottom: 30px;
 }
 
-// #racepage {
-//   border-radius: 10px 10px 10px 10px !important;
-//   -moz-border-radius: 10px 10px 10px 10px !important;
-//   -webkit-border-radius: 10px 10px 10px 10px !important;
-//   border: 8px solid #50bfbf;
-//   box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-// }
-
 .col-xs-4 {
-  border-radius: 8px 8px 0px 0px !important;
-  border: 2px solid #50bfbf;
+  // border-radius: 8px 8px 0px 0px !important;
+  border: 2px solid #00688B;
   font-size: 18px;
 }
 
 .col-lg-4 {
-  border: 10px solid #50bfbf;
+  border: 10px solid #00688B;
   font-size: 20px;
+}
+
+.col-md-4 {
+  border: 2px solid #00688B;
+  font-size: 18px;
+  background-color: white;
 }
 
 .col-xs-12 {
@@ -100,8 +124,6 @@ p {
     -webkit-background-size: cover;
     padding: 200px 0 10px;
     border: 1px solid #EAEAEA;
-    border-radius: 10px 10px 0px 0px;
-    background-size: cover;
 }
 
 .profile-wrapper .small-thumb {
