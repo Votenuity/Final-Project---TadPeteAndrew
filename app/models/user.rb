@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
 
+  def position
+    if self.legislator == "Rep"
+      "Rep." + " " + full_name
+    elsif self.legislator == "Sen"
+      "Sen." + " " + full_name
+    else
+      full_name
+    end
+  end
+
   private
 
   def set_default_role

@@ -7,7 +7,7 @@
           <%= image_tag(runner.profile_image || runner.avatar.url(:medium), class: "small-thumb") %>
       </div>
       <div class="description">
-         <h3><%= runner.full_name %></h3>
+         <h3><%= runner.position %></h3>
           <h5> <strong><%= runner.party %></strong></h5>
           <hr>
           <%= link_to "More Information +", user_path(runner), class: "btn btn-danger btn-block" %>
