@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :legislators
   devise_for :users, controllers: {registrations: "registrations"}
   resources :users, :only => [:index, :show]
