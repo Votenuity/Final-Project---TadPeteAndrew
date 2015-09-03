@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901203946) do
+ActiveRecord::Schema.define(version: 20150902222536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",                   null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "follower_id",                     null: false
+    t.string   "follower_type",                   null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "issues", force: :cascade do |t|
     t.string   "name"
@@ -33,23 +46,15 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.datetime "updated_at",                  null: false
   end
 
-  create_table "legislatures", force: :cascade do |t|
-    t.string   "position_title"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "party"
-    t.string   "link"
-    t.string   "fullName"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "races", force: :cascade do |t|
     t.string   "title"
-    t.string   "district"
+    t.integer  "district"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
+
+  add_index "races", ["slug"], name: "index_races_on_slug", unique: true, using: :btree
 
   create_table "statements", force: :cascade do |t|
     t.text     "stance"
@@ -58,12 +63,17 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.integer  "user_id"
   end
 
+  add_index "statements", ["user_id"], name: "index_statements_on_user_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.integer  "issue_id"
     t.integer  "statement_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "topics", ["issue_id"], name: "index_topics_on_issue_id", using: :btree
+  add_index "topics", ["statement_id"], name: "index_topics_on_statement_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150901203946) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "race_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

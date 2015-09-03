@@ -1,22 +1,17 @@
 class RacesController < ApplicationController
   before_action :set_race
 
-  def index
-    @races = Race.all
-  end
-
   def show
-
-  end
-
-  def create
-
+    @races = Race.all
+    @candidates = User.where(role: "candidate", race_id: params[:id])
+    @issues = Issue.all
   end
 
   private
 
   def set_race
-    @race = Race.find(params[:id])
+    @race = Race.find_by_id(params[:id])
   end
+
 
 end

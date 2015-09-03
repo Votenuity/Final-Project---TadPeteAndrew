@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <ul class="navbar-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Current Elections
+    <span class="caret"></span>
+  </ul>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @races.each do |race| %>
+    <li><%= link_to race.title, race_path(race) %></li>
+    <% end %>
+  </ul>

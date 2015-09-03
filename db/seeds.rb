@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#this is for Pete
+
 require "json"
 
 # Takes an endpoint and spits out Hash with symbols

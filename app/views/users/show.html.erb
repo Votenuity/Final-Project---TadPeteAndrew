@@ -1,0 +1,24 @@
+  <div class="user_name">
+    <h2> <%= @user.first_name%> <%= @user.last_name %> </h2>
+  </div>
+
+<div class="user_information">
+  <div class="row">
+    <div class="col-xs-5">
+      <%= image_tag(@user.profile_image || @user.avatar.url(:medium)) %>
+    </div>
+    <div class="col-xs-5">
+      <p> First Name: <%= @user.first_name %> </p>
+      <p> Last Name: <%= @user.last_name %> </p>
+      <p> Email: <%= @user.email %> </p>
+    </div>
+  </div>
+</div>
+
+<div class = "bio">
+  <div class="row">
+    <div class="col-xs-12" "center-block">
+      <%= @user.bio %>
+    </div>
+  </div>
+</div>
