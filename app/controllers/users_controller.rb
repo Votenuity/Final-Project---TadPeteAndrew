@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @races = Race.all
+  end
+
+  def edit
+    @races = Race.all
   end
 
   def follow

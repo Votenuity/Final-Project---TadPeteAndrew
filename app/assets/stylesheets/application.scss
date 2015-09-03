@@ -13,7 +13,134 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "races";
 
+html {
+  background-color: lightgray !important;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  margin: 5px;
+  text-shadow:20px lightgray;
+}
+
+
+.navbar-inverse {
+  background: #00688B;
+  box-shadow: 0 10px 0 #c40000, 0 0px 0;
+}
+
+.navbar-inverse a{
+  color: white !important;
+  font-size: 16px;
+}
+
+.navbar-inverse .navbar-link {
+  padding-top: 18px;
+  color: white;
+  font-size: 16px;
+}
+
+.dropdown-menu a{
+  color: black !important;
+}
+
+.img-center {
+  margin: 5px;
+  height: 325px;
+  width: 305px;
+  border-radius: 15px 15px 15px 15px !important;
+
+}
+
+#background {
+  background-color: #F0F0F0;
+  padding: 0px 45px 0px 45px;
+  border-radius: 10px 10px 10px 10px !important;
+
+}
+
+#stance {
+  border-radius: 10px 10px 10px 10px !important;
+  -moz-border-radius: 10px 10px 10px 10px !important;
+  -webkit-border-radius: 10px 10px 10px 10px !important;
+  border: 10px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 20px;
+  display: flex;
+  background-color: white;
+}
+
+#runners {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+}
+
+.col-xs-4 {
+  // border-radius: 8px 8px 0px 0px !important;
+  border: 2px solid #00688B;
+  font-size: 18px;
+}
+
+.col-lg-4 {
+  border: 10px solid #00688B;
+  font-size: 20px;
+}
+
+.col-md-4 {
+  border: 2px solid #00688B;
+  font-size: 18px;
+  background-color: white;
+}
+
+.col-xs-12 {
+  text-shadow:10px 10px 10px lightgray;
+}
+
+
+//Profile Image
+.profile-wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.profile-wrapper .btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.profile-wrapper .profile-inner {
+    background-size: cover;
+    background-position: center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    padding: 200px 0 10px;
+    border: 1px solid #EAEAEA;
+}
+
+.profile-wrapper .small-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto -50px;
+    display: block;
+    border: 15px solid #fff;
+}
+
+.profile-wrapper .description {
+    padding: 30px 20px 20px;
+    text-align: center;
+    border: 1px solid #EAEAEA;
+    background-color: #fff;
+  }
 
  .bio {
   padding-top: 25%;

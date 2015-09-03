@@ -1,10 +1,9 @@
-
-<%= image_tag @user.avatar.url(:thumb) %>
+<%= image_tag(@user.avatar.url(:thumb) || @user.profile_image) %>
 <div class = "user-header">
 <%if @user.last_name.ends_with? "s" %>
-  <h1><%=@user.first_name%> <%=@user.last_name%>' Voteanuity</h1>
+  <h1><%=@user.first_name%> <%=@user.last_name%>' Votenuity</h1>
 <% else %>
-  <h1><%=@user.first_name%> <%=@user.last_name%>'s Voteanuity</h1>
+  <h1><%=@user.first_name%> <%=@user.last_name%>'s Votenuity</h1>
 <% end %>
 
 <%= link_to 'Profile', user_path(:id => @user.id) %>
