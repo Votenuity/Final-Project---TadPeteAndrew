@@ -27,7 +27,6 @@ p {
   text-shadow:20px lightgray;
 }
 
-
 .navbar-inverse {
   background: #00688B;
   box-shadow: 0 10px 0 #c40000, 0 0px 0;
@@ -38,10 +37,25 @@ p {
   font-size: 16px;
 }
 
+.navbar > .container .navbar-brand {
+  margin-left: -145%;
+  padding-left: 80px;
+}
+
 .navbar-inverse .navbar-link {
   padding-top: 18px;
   color: white;
   font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar-nav > li > a  {
+  padding-top: 19px;
+}
+
+.glyphicon.glyphicon-globe {
+    font-size: 75px;
 }
 
 .dropdown-menu a{
@@ -60,7 +74,20 @@ p {
   background-color: #F0F0F0;
   padding: 0px 45px 0px 45px;
   border-radius: 10px 10px 10px 10px !important;
+  min-height: 900px;
+}
 
+#runner-info {
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: white;
+
+}
+
+#runner-info p{
+  margin: 10px;
+  font-weight: 300;
+  line-height: 1em;
 }
 
 #stance {
@@ -74,13 +101,61 @@ p {
   background-color: white;
 }
 
-#runners {
+#nav-top {
+  margin-right: 0px;
+
+}
+
+#bacon {
+  padding: 20px 40px 40px 70px;
+}
+
+.col-lg-3 {
+  padding: 0px;
+}
+
+.runners {
   border-radius: 0px 0px 10px 10px !important;
   -moz-border-radius: 0px 0px 10px 10px !important;
   -webkit-border-radius: 0px 0px 10px 10px !important;
   border: 3px solid #00688B;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin-bottom: 30px;
+}
+
+#profileheader {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+#show-profile {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+}
+
+#user_bio {
+  border-radius: 10px 10px 10px 10px !important;
+  -moz-border-radius: 10px 10px 10px 10px !important;
+  -webkit-border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 20px;
+  display: flex;
+  background-color: white;
+  font-size: 17px;
+}
+
+#runner-follow {
+  border-radius: 10px;
 }
 
 .col-xs-4 {
