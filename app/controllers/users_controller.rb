@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :authenticate_user!
+
   def index
     @users = User.all
   end
 
   def show
-    @races = Race.all
   end
 
   def edit
-    @races = Race.all
   end
 
   def follow

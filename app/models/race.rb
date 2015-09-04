@@ -1,5 +1,6 @@
 class Race < ActiveRecord::Base
   has_many :users
+
   # extend FriendlyId
   # friendly_id :title, use: :slugged
   #
