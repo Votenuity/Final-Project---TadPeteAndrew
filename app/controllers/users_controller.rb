@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
   respond_to :html, :json
+  before_action :authenticate_user!
   def index
     @users = User.all
   end
 
   def show
-    @races = Race.all
   end
 
   def new
@@ -14,8 +14,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @races = Race.all
-    redirect_to path
   end
 
   def update

@@ -1,0 +1,36 @@
+<div class="row" id="show-profile">
+  <div class="col-md-4">
+    <div class="profile-wrapper">
+      <div class="profile-inner" style="background: url(<%= user.profile_image || user.avatar.url(:medium) %>)
+        no-repeat center; background-size:cover; ">
+      </div>
+      <div class="description">
+         <h3><%= user.position %></h3>
+          <h5> <strong><%= user.party %></strong></h5>
+          <hr>
+          <div class="row">
+            <ul class="list-inline">
+              <li><%= link_to "Follow", "#", class: "btn-primary btn-lg" %></li>
+              <li><h4>Followers</h4><br><h4><%= user.followers_count %></h4></li>
+              <li><%= link_to "Unfollow", "#", class: "btn-primary btn-lg"%></li>
+            </ul>
+          </div>
+      </div>
+       </div>
+      <br>
+  </div>
+  <div class="col-xs-8 col-xs-offset-0 pull-right" id="runner-info">
+      <p><h3><strong>Family:</strong></h3> <%= user.family %></p>
+      <p><h3><strong>Education:</strong></h3> <%= user.education %></p>
+      <p><h3><strong>Elected Office:</strong></h3> <%= user.elected_office %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+  <h1 class="text-center"><strong>Biography</strong></h1>
+  </div>
+  <div class="col-xs-12" id="user_bio">
+    <p><%= user.bio %></p>
+    <p> <%= button_to "Edit Bio", edit_user_path(@user), method: :get %> </p>
+  </div>
+</div>
