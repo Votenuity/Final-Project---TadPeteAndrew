@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
+  respond_to :html, :json
   before_action :authenticate_user!
-
   def index
     @users = User.all
   end
@@ -9,7 +9,16 @@ class UsersController < ApplicationController
   def show
   end
 
+  def new
+    @user = User.new
+  end
+
   def edit
+  end
+
+  def update
+    @user.update(user_params)
+    respond_with @user
   end
 
   def follow
@@ -35,5 +44,9 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:bio)
     end
 end

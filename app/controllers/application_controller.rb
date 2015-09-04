@@ -14,5 +14,4 @@ class ApplicationController < ActionController::Base
   def set_races
     @races = Race.all
   end
-
 end
