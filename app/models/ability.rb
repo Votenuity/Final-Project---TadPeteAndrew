@@ -2,16 +2,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    #
+    current_user ||= User.new # used for a guest user
 
-      if user.role == admin
+      if current_user.role == :admin
         can :manage, :all
-      end
-
-
-      if user.role == voter
-        can
+        can :access :rails_admin
+      else
+        can :read, :all
+        can :update, User do |user|
+          user.id == current_user.id
+        cannot :access :rails_admin
+        end
       end
 
     #

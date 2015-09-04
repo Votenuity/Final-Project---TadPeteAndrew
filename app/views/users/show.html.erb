@@ -18,7 +18,8 @@
 <div class = "bio">
   <div class="row">
     <div class="col-xs-12" "center-block">
-      <%= @user.bio %>
+      <p> <%= best_in_place @user, :bio %> </p>
+      <p> <%= button_to "Edit Bio", edit_user_path(@user), method: :get %> </p>
     </div>
   </div>
 </div>
