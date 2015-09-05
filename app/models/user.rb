@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
-
   ROLES = %w[voter admin candidate]
 
   #pulls a the statements by the candidate from the db from that issue.
