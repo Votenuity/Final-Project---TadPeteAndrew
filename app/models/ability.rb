@@ -6,12 +6,10 @@ class Ability
 
       if current_user.role == :admin
         can :manage, :all
-        can :access, :rails_admin
       else
         can :read, :all
         can :update, User do |user|
-        user.id == current_user.id
-        cannot :access, :rails_admin
+          user.id == current_user.id
         end
       end
 
