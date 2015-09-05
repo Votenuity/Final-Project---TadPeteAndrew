@@ -27,17 +27,15 @@ class UsersController < ApplicationController
       redirect_to :back
     else
       current_user.follow(@user)
-      flash[:notice] = "You are now following #{@user.first_name} #{@user.last_name}"
+      flash[:notice] = "You are now following #{@user.full_name}"
       redirect_to :back
     end
   end
 
   def unfollow
-    if current_user
       current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user.first_name} #{@user.last_name}"
+      flash[:notice] = "You are no longer following #{@user.full_name}"
       redirect_to :back
-    end
   end
 
   private

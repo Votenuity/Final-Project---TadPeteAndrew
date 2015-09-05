@@ -1,12 +1,12 @@
-<%= form_for(@user) do |f| %>
-
+<%= bootstrap_form_for(@user) do |f| %>
+<div class="user_edit_form">
   <div class="field">
-    <%= f.label :bio%><br>
     <%= f.text_area :bio%>
   </div>
 
   <div class="actions">
     <%= f.submit "Submit Changes to Bio" %>
   </div>
+</div>
 
 <% end %>

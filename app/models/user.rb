@@ -35,4 +35,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def image_check_show
+    if user.profile_image.blank? || user.profile_image.nil?
+      image_tag(user.avatar.url(:medium))
+    else
+      image_tag(user.profile_image, size: "300x300")
+    end
+  end
+
 end
