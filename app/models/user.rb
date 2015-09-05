@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
+
   ROLES = %w[voter admin candidate]
 
   #pulls a the statements by the candidate from the db from that issue.
@@ -32,14 +33,6 @@ class User < ActiveRecord::Base
       "Sen." + " " + full_name
     else
       full_name
-    end
-  end
-
-  def image_check_show
-    if user.profile_image.blank? || user.profile_image.nil?
-      image_tag(user.avatar.url(:medium))
-    else
-      image_tag(user.profile_image, size: "300x300")
     end
   end
 

@@ -1,6 +1,6 @@
 <% if @user.role == "candidate" %>
   <%= render partial: 'users/candidates', locals: {user: @user} %>
-<% elsif @user.role = "voter" %>
+<% elsif @user.role == "voter" %>
   <%= render partial: 'users/voters', locals: {user: @user} %>
 <% else %>
 <% end %>
