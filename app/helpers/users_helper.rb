@@ -29,4 +29,13 @@ module UsersHelper
     @user.role.slice(0,1).capitalize + @user.role.slice(1..-1)
   end
 
+  def user_show_logic
+    if @user.role == "candidate"
+      render partial: 'users/candidates', locals: {user: @user}
+    elsif @user.role == "voter"
+      render partial: 'users/voters', locals: {user: @user}
+    else
+    end
+  end
+
 end
