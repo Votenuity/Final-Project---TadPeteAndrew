@@ -33,23 +33,54 @@ def parse_me(json_obj)
 
 end
 
+# Makes API call to IGA website for JSON data picture
+def pichparty(end_point)
 
-# Seed lines go here
+  HTTParty.get(end_point,
+    :headers => {"Accept" => "image/png",
+    "Authorization" => ENV["iga_token"]},
+    :verify => false)
 
-# Grabs JSON from API, parses in to array of hashes
+end
+
+def igahashcommittees2array(hash)
+
+end
+
+def igahashbills2array(hash)
+
+end
+
+
+# Grabs JSON from API, using only endpoint, parses in to array of hashes
 house_hash = parsed("https://api.iga.in.gov/2014/chambers/house/legislators?per_page=102")
 senate_hash = parsed("https://api.iga.in.gov/2014/chambers/senate/legislators?per_page=50")
 
 
+
+
+# Seed lines go here
+
+
 # Assigns each legislator member to a spot in the database
 house_hash[:items].each do |house|
+
+  house_hash_detail = parsed("https://api.iga.in.gov" + house["link"])
+
+  house_hash_detail_bills_authored = parsed("https://api.iga.in.gov" + house_hash_detail["bills"]["authored"]["items"])
+  house_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov" + house_hash_detail["bills"]["coauthored"]["items"])
+  house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov" + house_hash_detail["bills"]["sponsored"]["items"])
+  house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov" + house_hash_detail["bills"]["cosponsored"]["items"])
 
   Legislator.create(position_title: house["position_title"],
                     firstName: house["firstName"],
                     lastName: house["lastName"],
                     party: house["party"],
                     link: house["link"],
-                    fullName: house["fullName"])
+                    fullName: house["fullName"],
+                    chamber: house_hash_detail["chamber"]["name"],
+                    committees: igahashcommittees2array(house_hash_detail["committees"])
+                    bills: igahashbills2array(house_hash_detail_bills))
 
 end
 
