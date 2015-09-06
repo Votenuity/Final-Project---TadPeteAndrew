@@ -22,6 +22,8 @@ gem 'friendly_id'
 gem "paperclip"
 gem "cancan"
 gem "httparty"
+gem "rails_admin"
+gem 'best_in_place'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -18,6 +18,7 @@
 html {
   background-color: lightgray !important;
 }
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -26,7 +27,6 @@ p {
   margin: 5px;
   text-shadow:20px lightgray;
 }
-
 
 .navbar-inverse {
   background: #00688B;
@@ -38,10 +38,30 @@ p {
   font-size: 16px;
 }
 
+.navbar > .container .navbar-brand {
+  margin-left: -145%;
+  padding-left: 80px;
+}
+
 .navbar-inverse .navbar-link {
   padding-top: 18px;
   color: white;
   font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-nav > li > a  {
+  padding-top: 19px;
+}
+
+.glyphicon.glyphicon-globe {
+    font-size: 75px;
 }
 
 .dropdown-menu a{
@@ -53,14 +73,25 @@ p {
   height: 325px;
   width: 305px;
   border-radius: 15px 15px 15px 15px !important;
-
 }
 
 #background {
   background-color: #F0F0F0;
   padding: 0px 45px 0px 45px;
   border-radius: 10px 10px 10px 10px !important;
+  min-height: 900px;
+}
 
+#runner-info {
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: white;
+}
+
+#runner-info p{
+  margin: 10px;
+  font-weight: 300;
+  line-height: 1em;
 }
 
 #stance {
@@ -74,7 +105,19 @@ p {
   background-color: white;
 }
 
-#runners {
+#nav-top {
+  margin-right: 0px;
+}
+
+#bacon {
+  padding: 20px 40px 40px 70px;
+}
+
+.col-lg-3 {
+  padding: 0px;
+}
+
+.runners {
   border-radius: 0px 0px 10px 10px !important;
   -moz-border-radius: 0px 0px 10px 10px !important;
   -webkit-border-radius: 0px 0px 10px 10px !important;
@@ -83,8 +126,42 @@ p {
   margin-bottom: 30px;
 }
 
+#profileheader {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+#show-profile {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+}
+
+#user_bio {
+  border-radius: 10px 10px 10px 10px !important;
+  -moz-border-radius: 10px 10px 10px 10px !important;
+  -webkit-border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 20px;
+  display: flex;
+  background-color: white;
+  font-size: 17px;
+}
+
+#runner-follow {
+  border-radius: 10px;
+}
+
 .col-xs-4 {
-  // border-radius: 8px 8px 0px 0px !important;
   border: 2px solid #00688B;
   font-size: 18px;
 }
@@ -103,7 +180,6 @@ p {
 .col-xs-12 {
   text-shadow:10px 10px 10px lightgray;
 }
-
 
 //Profile Image
 .profile-wrapper {
@@ -140,12 +216,12 @@ p {
     text-align: center;
     border: 1px solid #EAEAEA;
     background-color: #fff;
-  }
+}
 
- .bio {
+.bio {
   padding-top: 25%;
   text-align: center;
- }
+}
 
 .user_information {
   padding-top: 10%;
@@ -153,11 +229,18 @@ p {
   padding-left: 20%;
 }
 
-//.user_information img{
-//  height: 200px;
-//  width: 200px;
-//}
+.following_data{
+  padding-bottom: 15%;
+}
 
 .user_name{
   text-align: center;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 25px;
 }

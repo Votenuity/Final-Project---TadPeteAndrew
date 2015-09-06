@@ -1,12 +1,13 @@
 <% @issues.each do |issue| %>
-<div class="col-xs-12">
-<h1 class="text-center"><strong><%= issue.name %></strong></h1>
-</div>
-<div class="row" id="stance">
+  <div class="col-xs-12">
+    <h1 class="text-center"><strong><%= issue.name %></strong></h1>
+  </div>
+
+  <div class="row" id="stance">
     <% @candidates.each do |stance| %>
       <div class="col-xs-4 text-center">
         <p class="lead"><b><%= stance.statement_by_issue(issue.name) %></b></p>
       </div>
     <% end %>
-</div>
+  </div>
 <% end %>

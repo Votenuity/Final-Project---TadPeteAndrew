@@ -1,28 +1,20 @@
 class LegislatorsController < ApplicationController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
 
-  # GET /legislators
-  # GET /legislators.json
   def index
     @legislators = Legislator.all
   end
 
-  # GET /legislators/1
-  # GET /legislators/1.json
   def show
   end
 
-  # GET /legislators/new
   def new
     @legislator = Legislator.new
   end
 
-  # GET /legislators/1/edit
   def edit
   end
 
-  # POST /legislators
-  # POST /legislators.json
   def create
     @legislator = Legislator.new(legislator_params)
 
@@ -37,8 +29,6 @@ class LegislatorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /legislators/1
-  # PATCH/PUT /legislators/1.json
   def update
     respond_to do |format|
       if @legislator.update(legislator_params)
@@ -51,8 +41,6 @@ class LegislatorsController < ApplicationController
     end
   end
 
-  # DELETE /legislators/1
-  # DELETE /legislators/1.json
   def destroy
     @legislator.destroy
     respond_to do |format|
@@ -62,12 +50,11 @@ class LegislatorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_legislator
       @legislator = Legislator.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def legislator_params
       params.require(:legislator).permit(:position_title, :firstName, :lastName, :party, :link, :fullName)
     end

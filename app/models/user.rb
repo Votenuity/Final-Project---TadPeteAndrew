@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: {medium: "300x300>", thumb: "100x100>"}
   has_many :statements
   belongs_to :race
-  before_create :set_default_role
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -26,10 +25,14 @@ class User < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
 
-  private
-
-  def set_default_role
-    self.role = "voter"
+  def position
+    if self.legislator == "Rep"
+      "Rep." + " " + full_name
+    elsif self.legislator == "Sen"
+      "Sen." + " " + full_name
+    else
+      full_name
+    end
   end
 
 end

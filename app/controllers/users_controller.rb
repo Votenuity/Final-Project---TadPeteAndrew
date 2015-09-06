@@ -1,15 +1,24 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
+  respond_to :html, :json
+  before_action :authenticate_user!
   def index
     @users = User.all
   end
 
   def show
-    @races = Race.all
+  end
+
+  def new
+    @user = User.new
   end
 
   def edit
-    @races = Race.all
+  end
+
+  def update
+    @user.update(user_params)
+    respond_with @user
   end
 
   def follow
@@ -18,22 +27,24 @@ class UsersController < ApplicationController
       redirect_to :back
     else
       current_user.follow(@user)
-      flash[:notice] = "You are now following #{@user.first_name} #{@user.last_name}"
+      flash[:notice] = "You are now following #{@user.full_name}"
       redirect_to :back
     end
   end
 
   def unfollow
-    if current_user
       current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user.first_name} #{@user.last_name}"
+      flash[:notice] = "You are no longer following #{@user.full_name}"
       redirect_to :back
-    end
   end
 
   private
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:bio)
     end
 end
