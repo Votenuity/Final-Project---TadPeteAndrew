@@ -65,7 +65,8 @@ house_hash[:items].each do |house|
   house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
   house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
-  house_hash_detail_bills_all = house_hash_detail_bills_co_authored[:items].merge(house_hash_detail_bills_co_authored[:items]).merge(house_hash_detail_bills_sponsored[:items]).merge(house_hash_detail_bills_co_sponsored[:items])
+  house_hash_detail_bills_all = []
+  house_hash_detail_bills_all << house_hash_detail_bills_co_authored[:items] << house_hash_detail_bills_co_authored[:items] << house_hash_detail_bills_sponsored[:items] << house_hash_detail_bills_co_sponsored[:items]
 
   Legislator.create(position_title: house[:position_title],
                     firstName: house[:firstName],
@@ -83,9 +84,9 @@ end
 # Assigns each senate member to a spot in the database
 senate_hash[:items].each do |senate|
 
-  senate_hash_detail = parsed("https://api.iga.in.gov" + senate[:link].to_s)
+  senate_hash_detail = parsed("https://api.iga.in.gov#{senate[:link]}")
 
-  senate_hash_detail_bills = parsed("https://api.iga.in.gov" + senate_hash_detail[:bills].to_s)
+  senate_hash_detail_bills = parsed("https://api.iga.in.gov#{senate_hash_detail[:bills][:link]}")
 
   senate_hash_detail_bills_authored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:authored].to_s)
   senate_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:coauthored].to_s)
