@@ -6,7 +6,7 @@
   <div class="row" id="stance">
     <% @candidates.each do |stance| %>
       <div class="col-xs-4 text-center">
-        <p class="lead"><b><%= stance.statement_by_issue(issue.name) %></b></p>
+        <p class="lead"><%= stance.statement_by_issue(issue.name) %></p>
       </div>
     <% end %>
   </div>
