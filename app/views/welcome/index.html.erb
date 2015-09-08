@@ -1,10 +1,127 @@
-<div class="row">
-  <%= image_check %>
 
-  <!-- possesive is a helper method in the user_helper.rb file -->
-  <h1><%= possessive(@user.full_name) %> Votenunity</h1>
-    <%= link_to 'Profile', user_path(:id => @user.id) %>
-    <% current_user.all_follows.each do |follow| %>
-      <%= link_to follow.followable.full_name, user_path(:id => follow.followable_id) %>
-    <% end %>
+<div class="row">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag(race_images) %>
+        <div class="carousel-caption">
+            <h3>Sixth House District Race</h3>
+            <p class="btn-primary">Today's elections started off rocky with a decreased turnout.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag(race_images) %>
+        <div class="carousel-caption">
+            <h3>Third District House Race</h3>
+            <p class="btn-primary">Today's elections started off rocky with a decreased turnout.</p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag(race_images) %>
+        <div class="carousel-caption">
+            <h3>Second District House Race</h3>
+            <p class="btn-primary">Today's elections started off rocky with a decreased turnout.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div> <!-- Carousel -->
 </div>
+
+<div class="col-xs-3 pull-right" id="right-sidebar">
+          <!-- start single widget -->
+          <div class="single_widget">
+            <h2>Information</h2>
+            <ul class="ppost_nav wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+              <li>
+                <div class="media">
+                  <a class="media-left" href="single_page.html">
+                    <!-- <img src="img/70x70.jpg" alt="img"> -->
+                  </a>
+                  <div class="media-body">
+                    <a class="catg_title" href="single_page.html"> Aliquam malesuada diam eget turpis varius</a>
+                  </div>
+                </div>
+              </li>
+               <li>
+                <div class="media">
+                  <a class="media-left" href="single_page.html">
+                    <!-- <img src="img/70x70.jpg" alt="img"> -->
+                  </a>
+                  <div class="media-body">
+                    <a class="catg_title" href="#"> Aliquam malesuada diam eget turpis varius</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div><!-- End single widget -->
+
+          <!-- start single widget -->
+          <div class="single_widget">
+           <h2>Categories</h2>
+           <ul>
+             <li class="cat-item"><a href="#">Technology</a></li>
+             <li class="cat-item"><a href="#">Games</a></li>
+             <li class="cat-item"><a href="#">Business</a></li>
+             <li class="cat-item"><a href="#">Gallery</a></li>
+             <li class="cat-item"><a href="#">Slider</a></li>
+             <li class="cat-item"><a href="#">Life &amp; Style</a></li>
+             <li class="cat-item"><a href="#">Sports</a></li>
+           </ul>
+          </div><!-- End single widget -->
+           <!-- start single widget -->
+          <div class="single_widget">
+           <h2>Category Archive</h2>
+           <select class="catgArchive">
+              <option>Select Category</option>
+              <option>Life styles</option>
+              <option>Sports</option>
+              <option>Technology</option>
+              <option>Treads</option>
+            </select>
+
+          </div><!-- End single widget -->
+           <!-- start single widget -->
+          <div class="single_widget">
+           <h2>Links</h2>
+           <ul>
+             <li><a href="#">Log in</a></li>
+             <li><a href="#">Entries RSS</a></li>
+             <li><a href="#">Comment RSS</a></li>
+             <li><a href="#">Wordpress.org</a></li>
+           </ul>
+          </div><!-- End single widget -->
+      </div>
+
+<% @races.each do |race| %>
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2><%= race.title %></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+          Aliquam in felis sit amet augue.</p>
+        <p class="lead"><%= button_to "Read More", race_path(race), method: :get, class: "btn btn-danger" %></button></p>
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><%= time_ago_in_words(race.created_at) %> ago</li><li><a href="#"><li><a href="#"><i class="glyphicon glyphicon-share"></i>Three Candidates</a></li></ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+<% end %>

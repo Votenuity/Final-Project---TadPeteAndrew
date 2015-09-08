@@ -79,7 +79,7 @@ h4 {
   background-color: #F0F0F0;
   padding: 0px 45px 0px 45px;
   border-radius: 10px 10px 10px 10px !important;
-  min-height: 900px;
+  min-height: 1500px;
 }
 
 #runner-info {
@@ -107,6 +107,17 @@ h4 {
 
 #nav-top {
   margin-right: 0px;
+}
+
+#top-carousel {
+  border-radius: 10px 10px 0 0 !important;
+  background-color: #00688B;
+  color: white;
+}
+
+#left-sidebar {
+  margin-top: 10px;
+  margin-left: 1px;
 }
 
 #bacon {
@@ -145,6 +156,28 @@ h4 {
   background-color: white;
 }
 
+.col-sm-8 {
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+  margin-top: 18px;
+  margin-left: 24px;
+}
+
+.col-sm-8 + .col-sm-8:last-child {
+  margin-bottom: 30px;
+}
+
+.carousel-inner p, h3 {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+  text-shadow: 1px;
+
+}
+
 #user_bio {
   border-radius: 10px 10px 10px 10px !important;
   -moz-border-radius: 10px 10px 10px 10px !important;
@@ -161,7 +194,22 @@ h4 {
   border-radius: 10px;
 }
 
+#right-sidebar {
+  position: relative;
+  margin-top: 18px;
+  margin-right: 19px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+
+}
+
 .col-xs-4 {
+  border: 2px solid #00688B;
+  font-size: 18px;
+}
+
+.col-xs-3 {
   border: 2px solid #00688B;
   font-size: 18px;
 }
@@ -244,3 +292,124 @@ label {
     font-weight: bold;
     font-size: 25px;
 }
+
+.carousel {
+  margin-top: 20px;
+  border-radius: 0px 0px 10px 10px !important;
+  -moz-border-radius: 0px 0px 10px 10px !important;
+  -webkit-border-radius: 0px 0px 10px 10px !important;
+  border: 3px solid #00688B;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: white;
+  margin-top: 10px;
+  color: white;
+  width: 95%;
+  margin-left: 24px;
+}
+
+// Footer Area
+
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+
+	padding: 50px 60px;
+	margin-top: 18px;
+	overflow: hidden;
+  background: #00688B;
+  box-shadow: inset 0 10px 0 #c40000, 0 0px 0;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	float: left;
+}
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color: white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+/* Footer right */
+
+.footer-distributed .footer-right{
+	float: right;
+}
+
+/* The search form */
+
+.footer-distributed form{
+	position: relative;
+}
+
+.footer-distributed form input{
+	display: block;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color:  #F0F0F0;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	border: none;
+
+	font: inherit;
+	font-size: 14px;
+	font-weight: normal;
+	color:  #d1d2d2;
+
+	width: 500px;
+	padding: 18px 50px 18px 18px;
+}
+
+.footer-distributed form input:focus{
+	outline: none;
+}
+
+/* Changing the placeholder color */
+
+.footer-distributed form input::-webkit-input-placeholder {
+	color:  #5c666b;
+}
+
+.footer-distributed form input::-moz-placeholder {
+	opacity: 1;
+	color:  #5c666b;
+}
+
+.footer-distributed form input:-ms-input-placeholder{
+	color:  #5c666b;
+}
+
+/* The magnify glass icon */
+
+.footer-distributed form i{
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: 16px;
+	right: 18px;
+
+	color: #d1d2d2;
+	font-size: 18px;
+}
+
+// End of Footer Area
