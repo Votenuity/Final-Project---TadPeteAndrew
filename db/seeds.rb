@@ -58,12 +58,12 @@ house_hash[:items].each do |house|
 
   house_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
 
-  house_hash_detail_bills = parsed("https://api.iga.in.gov" + house_hash_detail[:bills].to_s)
+  house_hash_detail_bills = parsed("https://api.iga.in.gov#{house_hash_detail[:bills][:link]}")
 
-  house_hash_detail_bills_authored = parsed("https://api.iga.in.gov" + house_hash_detail_bills[:authored].to_s)
-  house_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov" + house_hash_detail_bills[:coauthored].to_s)
-  house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov" + house_hash_detail_bills[:sponsored].to_s)
-  house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov" + house_hash_detail_bills[:cosponsored].to_s)
+  house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")
+  house_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:coauthored][:link]}")
+  house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
+  house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
   house_hash_detail_bills_all = house_hash_detail_bills_co_authored[:items].merge(house_hash_detail_bills_co_authored[:items]).merge(house_hash_detail_bills_sponsored[:items]).merge(house_hash_detail_bills_co_sponsored[:items])
 
