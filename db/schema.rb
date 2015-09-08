@@ -49,17 +49,6 @@ ActiveRecord::Schema.define(version: 20150904154730) do
     t.text     "bills",          default: [],              array: true
   end
 
-  create_table "legislatures", force: :cascade do |t|
-    t.string   "position_title"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "party"
-    t.string   "link"
-    t.string   "fullName"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "races", force: :cascade do |t|
     t.string   "title"
     t.integer  "district"
