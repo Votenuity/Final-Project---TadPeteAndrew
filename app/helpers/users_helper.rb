@@ -26,7 +26,7 @@ module UsersHelper
   end
 
   def capitalize_role
-    @user.role.slice(0,1).capitalize + @user.role.slice(1..-1)
+    @user.role.humanize
   end
 
   def user_show_logic

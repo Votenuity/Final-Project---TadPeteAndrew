@@ -10,31 +10,27 @@
       </div>
     <% end %>
   </div>
+
   <div class ="text-center" id="checkboxes">
     <div class="row" id="options">
-      <div class="votemachine">
-        <div class="col-xs-4">
-          <label class="radio-inline" id="runner_one"><input type="radio" name="pete<%= index %>">I Agree</label>
-        </div>
-        <div class="col-xs-4">
-          <label class="radio-inline" id="runner_two"><input type="radio" name="pete<%= index %>">I Agree</label>
-        </div>
-        <div class="col-xs-4">
-          <label class="radio-inline" id="runner_three"><input type="radio" name="pete<%= index %>">I Agree</label>
-        </div>
+      <div class="col-xs-4">
+        <label class="radio-inline"><input class="runner_one votemachine"
+          type="radio" name="pete<%= index %>">I Agree</label>
+      </div>
+      <div class="col-xs-4">
+        <label class="radio-inline"><input class="runner_two votemachine"
+          type="radio" name="pete<%= index %>">I Agree</label>
+      </div>
+      <div class="col-xs-4">
+        <label class="radio-inline"><input class="runner_three votemachine"
+          type="radio" name="pete<%= index %>">I Agree</label>
       </div>
     </div>
   </div>
 <% end %>
 
-<script>
-$("votemachine").on("change", function(){
-   ("#runner_one").length;
-   ("#runner_two").length;
-   ("#runner_three").length;
-});
-
-
-
-
-</script>
+<div class="col-xs-12 text-center">
+  <div class="col-xs-4 candidate_one_total"></div>
+  <div class="col-xs-4 candidate_two_total"></div>
+  <div class="col-xs-4 candidate_three_total"></div>
+</div>

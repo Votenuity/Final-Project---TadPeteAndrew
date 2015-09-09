@@ -3,7 +3,7 @@
     <div class="navbar-header">
         <%= link_to "Votenuity™", root_path, class: "navbar-brand" %>
     </div>
-    <% if current_user.role == "admin" %>
+    <% if user_signed_in? && current_user.role == "admin" %>
     <div class="navbar-header text-right">
       <%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: "navbar-brand" %>
     </div>

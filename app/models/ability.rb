@@ -4,8 +4,10 @@ class Ability
   def initialize(user)
     current_user ||= User.new # used for a guest user
 
-      if current_user.role == :admin
+      if current_user.role == "admin"
         can :manage, :all
+        can :access, :rails_admin
+        can :dashboard
       else
         can :read, :all
         can :update, User do |user|
