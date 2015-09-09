@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904154730) do
+ActiveRecord::Schema.define(version: 20150908170257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,23 +49,14 @@ ActiveRecord::Schema.define(version: 20150904154730) do
     t.text     "bills",          default: [],              array: true
   end
 
-  create_table "legislatures", force: :cascade do |t|
-    t.string   "position_title"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "party"
-    t.string   "link"
-    t.string   "fullName"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "races", force: :cascade do |t|
     t.string   "title"
     t.integer  "district"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.string   "summary"
+    t.text     "body"
   end
 
   add_index "races", ["slug"], name: "index_races_on_slug", unique: true, using: :btree
