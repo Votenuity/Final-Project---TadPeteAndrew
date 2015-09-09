@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904154730) do
+ActiveRecord::Schema.define(version: 20150908175814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150904154730) do
     t.datetime "updated_at",                  null: false
     t.string   "chamber",        default: ""
     t.text     "committees",     default: [],              array: true
-    t.text     "bills",          default: [],              array: true
+    t.hstore   "bill",           default: [],              array: true
   end
 
   create_table "legislatures", force: :cascade do |t|

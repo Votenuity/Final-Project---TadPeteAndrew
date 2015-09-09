@@ -20,9 +20,12 @@ end
 
 # Turns JSON response into hashes all the way through
 def parse_me(json_obj)
-
-  JSON.parse(json_obj)
-
+  begin
+    JSON.parse(json_obj)
+    puts json_obj.inspect
+  rescue JSON::ParserError, TypeError => e
+    []
+  end
 end
 
 # Makes API call to IGA website for JSON data of picture
@@ -33,16 +36,6 @@ def pichparty(end_point)
     "Authorization" => ENV["iga_token"]},
     :verify => false)
 
-end
-
-# Turns hash of committees into an array of the hash values
-def igahashcommittees2array(hash)
-  hash.values.to_a
-end
-
-# Turns hash of bills into an array of the hash values
-def igahashbills2array(hash)
-  hash.values.to_a
 end
 
 
@@ -65,9 +58,6 @@ house_hash[:items].each do |house|
   house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
   house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
-  house_hash_detail_bills_all = []
-  house_hash_detail_bills_all << house_hash_detail_bills_co_authored[:items] << house_hash_detail_bills_co_authored[:items] << house_hash_detail_bills_sponsored[:items] << house_hash_detail_bills_co_sponsored[:items]
-
   Legislator.create(position_title: house[:position_title],
                     firstName: house[:firstName],
                     lastName: house[:lastName],
@@ -75,8 +65,8 @@ house_hash[:items].each do |house|
                     link: house[:link],
                     fullName: house[:fullName],
                     chamber: house_hash_detail[:chamber][:name],
-                    committees: igahashcommittees2array(house_hash_detail[:committees][:name]),
-                    bills: igahashbills2array(house_hash_detail_bills_all[:billName])
+                    committees: house_hash_detail[:committees],
+                    bill: house_hash_detail_bills_authored[:items]
                     )
 
 end
@@ -88,12 +78,10 @@ senate_hash[:items].each do |senate|
 
   senate_hash_detail_bills = parsed("https://api.iga.in.gov#{senate_hash_detail[:bills][:link]}")
 
-  senate_hash_detail_bills_authored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:authored].to_s)
-  senate_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:coauthored].to_s)
-  senate_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:sponsored].to_s)
-  senate_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov" + senate_hash_detail_bills[:cosponsored].to_s)
-
-  senate_hash_detail_bills_all = senate_hash_detail_bills_co_authored[:items].merge(senate_hash_detail_bills_co_authored[:items]).merge(senate_hash_detail_bills_sponsored[:items]).merge(senate_hash_detail_bills_co_sponsored[:items])
+  senate_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{senate_hash_detail_bills[:authored][:link]}")
+  senate_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov#{senate_hash_detail_bills[:coauthored][:link]}")
+  senate_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{senate_hash_detail_bills[:sponsored][:link]}")
+  senate_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{senate_hash_detail_bills[:cosponsored][:link]}")
 
   Legislator.create(position_title: senate[:position_title],
                     firstName: senate[:firstName],
@@ -102,8 +90,8 @@ senate_hash[:items].each do |senate|
                     link: senate[:link],
                     fullName: senate[:fullName],
                     chamber: senate_hash_detail[:chamber][:name],
-                    committees: igahashcommittees2array(senate_hash_detail[:committees][:name]),
-                    bills: igahashbills2array(senate_hash_detail_bills_all[:billName])
+                    committees: senate_hash_detail[:committees],
+                    bill: senate_hash_detail_bills_authored[:items]
                     )
 
 end
