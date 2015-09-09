@@ -1,0 +1,29 @@
+<div id= "partyForm">
+  <%= bootstrap_form_for @user, url:wizard_path do |f| %>
+
+    <h2> Party </h2>
+
+  <div class = "row">
+    <div class="col-lg-3" id="Republican">
+      <%= link_to image_tag("Republican.jpg"), class: "parties" %> <br/>
+      <p> Republican </p>
+    </div>
+
+    <div class="col-lg-3" id="Democrat">
+      <%= link_to image_tag("Democrat.jpg"), class: "parties" %> <br/>
+      <p> Democrat </p>
+    </div>
+
+    <div class="col-lg-3" id="Independent">
+      <%= link_to image_tag("Independent.jpg"), class: "parties" %> <br/>
+      <p> Undecided </p>
+    </div>
+
+    <div id="hidden_party">
+    <%= f.hidden_field :party, :value => @user.party %>
+    </div>
+
+
+  <% end %>
+  </div>
+</div>
