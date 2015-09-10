@@ -18,12 +18,14 @@ end
 
 # Turns JSON response into hashes all the way through
 def parse_me(json_obj)
+
   begin
     puts json_obj.inspect
     JSON.parse(json_obj)
   rescue JSON::ParserError, TypeError => e
     []
   end
+
 end
 
 # This group gets the URL for the picture of the Legislator
