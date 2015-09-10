@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'races/unfollow' => 'races#unfollow', as: :unfollow_race
   resources :legislators
   devise_for :users, controllers: {registrations: "registrations"}
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:show, :update]
   post 'users/follow' => 'users#follow', as: :follow
   post 'users/unfollow' => 'users#unfollow', as: :unfollow
   resources :sign_up_steps

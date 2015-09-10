@@ -1,0 +1,17 @@
+<% @races.each do |race| %>
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2><%= race.title %></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+          Aliquam in felis sit amet augue.</p>
+        <p class="lead"><%= button_to "Read More", race_path(race), method: :get, class: "btn btn-danger" %></button></p>
+        <p class="pull-right"><span class="label label-default">keywords</span> <span class="label label-default">district</span> <span class="label label-default">county</span></p>
+        <ul class="list-inline"><li><%= time_ago_in_words(race.created_at) %> ago</li><li><a href="#"><li><a href="#"><i class="glyphicon glyphicon-share"></i>Three Candidates</a></li></ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+<% end %>

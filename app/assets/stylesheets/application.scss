@@ -68,6 +68,18 @@ h4 {
   color: black !important;
 }
 
+.candidate_percentages {
+  margin-top: 20px;
+  border: 4px solid #00688B;
+  font-size: 22px;
+  background-color: white;
+}
+
+.candidate_percentages p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .img-center {
   margin: 5px;
   height: 325px;
@@ -79,7 +91,7 @@ h4 {
   background-color: #F0F0F0;
   padding: 0px 45px 0px 45px;
   border-radius: 10px 10px 10px 10px !important;
-  min-height: 1500px;
+  min-height: 1450px;
 }
 
 #runner-info {
@@ -99,8 +111,7 @@ h4 {
   -moz-border-radius: 10px 10px 10px 10px !important;
   -webkit-border-radius: 10px 10px 10px 10px !important;
   border: 10px solid #00688B;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  margin-bottom: 20px;
+  box-shadow: 10px 0px 5px 0px rgba(0,0,0,0.75);
   display: flex;
   background-color: white;
 }
@@ -137,6 +148,15 @@ h4 {
   margin-bottom: 30px;
 }
 
+#checkboxes {
+  padding-left: 18px;
+  padding-right: 5px;
+  border-top: 20px solid #c40000;
+  border-left: 40px solid transparent;
+  border-right: 45px solid transparent;
+  height: 0;
+}
+
 #profileheader {
   border-radius: 0px 0px 10px 10px !important;
   -moz-border-radius: 0px 0px 10px 10px !important;
@@ -171,10 +191,28 @@ h4 {
   margin-bottom: 30px;
 }
 
+.carousel-inner p {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+}
+
 .carousel-inner h3 {
   text-shadow: 2px 2px 5px black;
 
 }
+
+
+#options {
+  padding-left: 0px;
+  padding-right: 0px;
+  // box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+  margin-right: 0.1em;
+  border-top: 0px;
+  border-bottom: 4px solid #00688B;
+  border-left: 4px solid #00688B;
+  border-right: 4px solid #00688B;
+}
+
 
 #user_bios {
   border-radius: 10px 10px 10px 10px !important;
@@ -186,6 +224,10 @@ h4 {
   display: flex;
   background-color: white;
   font-size: 17px;
+}
+
+#user_bio {
+  min-height: 100px;
 }
 
 #runner-follow {
