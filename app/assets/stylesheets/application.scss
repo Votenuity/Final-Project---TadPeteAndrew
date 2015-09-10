@@ -201,6 +201,7 @@ h4 {
 
 }
 
+
 #options {
   padding-left: 0px;
   padding-right: 0px;
@@ -211,6 +212,7 @@ h4 {
   border-left: 4px solid #00688B;
   border-right: 4px solid #00688B;
 }
+
 
 #user_bios {
   border-radius: 10px 10px 10px 10px !important;
@@ -450,4 +452,29 @@ label {
 	font-size: 18px;
 }
 
+.party_title h3{
+
+}
+
+#row_styling{
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+  padding-bottom: 30px;
+}
+
+.party_info_list{
+  background-color: white;
+  border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+}
+
+.party_select{
+  margin-top: 35px;
+}
+
+.party_info_list{
+  font-size: 20px;
+}
 // End of Footer Area

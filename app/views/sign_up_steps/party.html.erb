@@ -1,29 +1,41 @@
 <div id= "partyForm">
   <%= bootstrap_form_for @user, url:wizard_path do |f| %>
-
-    <h2> Party </h2>
-
-  <div class = "row">
-    <div class="col-lg-3" id="Republican">
-      <%= link_to image_tag("Republican.jpg"), "#", class: "parties" %> <br/>
-      <p> Republican </p>
+  <div class="party_info_head text-center">
+    <h2> <strong> Party Info </strong> </h2>
+  </div>
+    <div class="row">
+    <div class="party_info_list col-lg-12">
+      <p class="republican_info"> <strong> The Republican party </strong> is associated with laissez-faire capitalism, low taxes, and conservative social policies. The party acquired the acronym GOP, widely understood as “Grand Old Party,” in the 1870s. The party’s official logo, the elephant, is derived from a cartoon by Thomas Nast and also dates from the 1870s. <strong> <i> Source: </i> </strong> <a href="http://www.britannica.com/topic/Republican-Party" target="blank" > britannica.com </a></p>
+      <p class="democrat_info"> <strong> The Democratic party </strong> supports organized labour, the civil rights of minorities, and progressive reform. Since President Franklin D. Roosevelt’s New Deal of the 1930s, the party has also tended to favour greater government intervention in the economy and to oppose government intervention in the private, noneconomic affairs of citizens. The logo of the Democratic Party, the donkey, was popularized by cartoonist Thomas Nast in the 1870s; though widely used, it has never been officially adopted by the party. <strong> <i> Source: </i> </strong> <a href="http://www.britannica.com/topic/Democratic-Party" target="blank"> britannica.com </a></p>
+      <p class="undecided_info"> <strong> An Undecided Voter </strong> is a voter who may not be affiliated with a particular political party (Independent) or who will vote across party lines. In American politics, many centrists, liberal Republicans and conservative Democrats are considered "swing voters" since their voting patterns cannot be predicted with certainty. </br> <strong> <i> Source: </i> </strong> <a href="https://en.wikipedia.org/wiki/Swing_vote" target="blank"> wikipedia.com </a> </p>
     </div>
+  </div>
 
-    <div class="col-lg-3" id="Democratic">
-      <%= link_to image_tag("Democrat.jpg"), '#', class: "parties" %> <br/>
-      <p> Democrat </p>
+    <div class="party_select text-center">
+      <h2> <strong> Select Your Party </strong> </h2>
     </div>
+    <div class = "row text-center" id="row_styling">
+      <div class="col-sm-4" id="Republican">
+        <h3 class="party_title"> <strong> Republican </strong> </h3> <br/>
+        <%= link_to image_tag("Republican.jpg"), "#", class: "parties" %>
+      </div>
 
-    <div class="col-lg-3" id="Undecided">
-      <%= link_to image_tag("Independent.jpg"), '#', class: "parties" %> <br/>
-      <p> Undecided </p>
-    </div>
+      <div class="col-sm-4" id="Democratic">
+        <h3 class="party_title"> <strong> Democrat </strong> </h3> <br/>
+        <%= link_to image_tag("Democrat.jpg"), '#', class: "parties" %>
+      </div>
 
-    <div id="hidden_party">
-    <%= f.hidden_field :party, :value => @user.party %>
-    </div>
+      <div class="col-sm-4" id="Undecided">
+        <h3 class="party_title"> <strong> Undecided </strong> </h3> </br>
+        <%= link_to image_tag("Independent.jpg"), '#', class: "parties" %>
+      </div>
+
+
+      <div id="hidden_party">
+      <%= f.hidden_field :party, :value => @user.party %>
+      </div>
 
 
   <% end %>
-  </div>
+    </div>
 </div>

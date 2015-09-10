@@ -1,6 +1,6 @@
 class SignUpStepsController < ApplicationController
   include Wicked::Wizard
-  steps :name, :bio, :profile_picture, :party
+  steps :name, :party
 
   def update
     @user = current_user
@@ -16,7 +16,7 @@ class SignUpStepsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :bio, :avatar, :party)
+    params.require(:user).permit(:first_name, :last_name, :bio, :avatar, :profile_image, :party)
   end
 
   def finish_wizard_path
