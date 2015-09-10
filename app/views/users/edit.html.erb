@@ -1,16 +1,5 @@
 <%= bootstrap_form_for(@user) do |f| %>
 
-  <div class="field">
-    <%= f.text_area :family, placeholder: @user.family %>
-  </div>
-
-  <div class="field">
-    <%= f.text_area :education, placeholder: @user.education %>
-  </div>
-
-  <div class="field">
-    <%= f.text_area :elected_office, placeholder: @user.elected_office %>
-  </div>
 
   <div class="field">
     <%= f.text_area :bio, size: "6x6"%>
