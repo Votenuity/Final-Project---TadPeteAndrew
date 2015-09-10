@@ -1,6 +1,10 @@
+<div class="row center">
+  <div class="col-xs-8 col-xs-offset-2" style="background-color:white; margin-top:20px;">
 <%= bootstrap_form_for @user, url:wizard_path do |f| %>
 
-  <h2> Name </h2>
+  <div class="info_header">
+    <h2> <strong> Tell Us About Yourself </strong> </h2> </br> </br>
+  </div>
 
   <div class="field">
     <%= f.text_field :first_name %>
@@ -10,8 +14,20 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <div class="field">
+    <%= f.text_area :bio %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :profile_image %>
+    <h4><em>or</em></h4>
+    <%= f.file_field :avatar, as: :file %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Continue" %>
   </div>
 
 <% end %>
+</div>
+</div>

@@ -171,14 +171,12 @@ h4 {
   margin-bottom: 30px;
 }
 
-.carousel-inner p, h3 {
-  border-radius: 10px;
-  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
-  text-shadow: 1px;
+.carousel-inner h3 {
+  text-shadow: 2px 2px 5px black;
 
 }
 
-#user_bio {
+#user_bios {
   border-radius: 10px 10px 10px 10px !important;
   -moz-border-radius: 10px 10px 10px 10px !important;
   -webkit-border-radius: 10px 10px 10px 10px !important;
@@ -412,4 +410,29 @@ label {
 	font-size: 18px;
 }
 
+.party_title h3{
+
+}
+
+#row_styling{
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+  padding-bottom: 30px;
+}
+
+.party_info_list{
+  background-color: white;
+  border-radius: 10px 10px 10px 10px !important;
+  border: 6px solid #00688B;
+}
+
+.party_select{
+  margin-top: 35px;
+}
+
+.party_info_list{
+  font-size: 20px;
+}
 // End of Footer Area
