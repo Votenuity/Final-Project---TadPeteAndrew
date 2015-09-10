@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20150908175814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.string   "summary"
+    t.text     "body"
   end
 
   add_index "races", ["slug"], name: "index_races_on_slug", unique: true, using: :btree

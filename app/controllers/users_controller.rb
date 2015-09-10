@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
   respond_to :html, :json, :js
   before_action :authenticate_user!
+
   def index
     @users = User.all
   end

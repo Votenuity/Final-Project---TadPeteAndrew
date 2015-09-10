@@ -20,12 +20,12 @@ end
 
 # Turns JSON response into hashes all the way through
 def parse_me(json_obj)
-  begin
+  # begin
     JSON.parse(json_obj)
-    puts json_obj.inspect
-  rescue JSON::ParserError, TypeError => e
-    []
-  end
+    # puts json_obj.inspect
+  # rescue JSON::ParserError, TypeError => e
+  #   []
+  # end
 end
 
 # Makes API call to IGA website for JSON data of picture
