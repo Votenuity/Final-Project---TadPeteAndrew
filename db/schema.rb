@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908175814) do
+ActiveRecord::Schema.define(version: 20150910155410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,17 +37,33 @@ ActiveRecord::Schema.define(version: 20150908175814) do
   end
 
   create_table "legislators", force: :cascade do |t|
-    t.string   "position_title", default: ""
-    t.string   "firstName",      default: ""
-    t.string   "lastName",       default: ""
-    t.string   "party",          default: ""
-    t.string   "link",           default: ""
-    t.string   "fullName",       default: ""
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "chamber",        default: ""
-    t.text     "committees",     default: [],              array: true
-    t.hstore   "bill",           default: [],              array: true
+    t.string   "position_title",    default: ""
+    t.string   "firstName",         default: ""
+    t.string   "lastName",          default: ""
+    t.string   "party",             default: ""
+    t.string   "link",              default: ""
+    t.string   "fullName",          default: ""
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "chamber",           default: ""
+    t.hstore   "bill_authored",     default: [],              array: true
+    t.hstore   "bill_co_authored",  default: [],              array: true
+    t.hstore   "bill_sponsored",    default: [],              array: true
+    t.hstore   "bill_co_sponsored", default: [],              array: true
+    t.binary   "avatar"
+    t.hstore   "committees",        default: [],              array: true
+    t.string   "leg_pic_url",       default: ""
+  end
+
+  create_table "legislatures", force: :cascade do |t|
+    t.string   "position_title"
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "party"
+    t.string   "link"
+    t.string   "fullName"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "races", force: :cascade do |t|
