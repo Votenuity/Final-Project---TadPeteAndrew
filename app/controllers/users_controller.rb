@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
-  respond_to :html, :json
+  respond_to :html, :json, :js
   before_action :authenticate_user!
 
   def index
@@ -23,20 +23,15 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if current_user == @user
-      flash[:notice] = "You cannot follow yourself"
-      redirect_to :back
-    else
-      current_user.follow(@user)
-      flash[:notice] = "You are now following #{@user.full_name}"
-      redirect_to :back
-    end
+    current_user.follow(@user)
+    flash[:notice] = "You are now following #{@user.full_name}"
+    redirect_to :back
   end
 
   def unfollow
-      current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user.full_name}"
-      redirect_to :back
+    current_user.stop_following(@user)
+    flash[:notice] = "You are no longer following #{@user.full_name}"
+    redirect_to :back
   end
 
   private
