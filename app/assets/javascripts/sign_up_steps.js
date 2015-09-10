@@ -1,6 +1,4 @@
-
-$(".parties").on("click", function(){
-  alert("Hi There");
-  $("#user_party").val($(this).parent.id);
-  $(".edit_user").submit;
+$(document).on("click",".parties", function(){
+  $("#user_party").val($(this).parent().attr("id"));
+  $(".edit_user").submit();
 });
