@@ -34,9 +34,7 @@
 				<p class="footer-links">
 					<%= link_to "Home", root_path %>
 					·
-          <%= link_to "News", root_path %>
-					·
-					<%= link_to "Current Elections", root_path %>
+          <%= link_to "Legislators", legislators_path %>
 					·
           <% if user_signed_in? %>
 					<%= link_to "Update Account", edit_user_registration_path %>

@@ -1,20 +1,22 @@
-<div class="row" id="runners">
-  <% @legislators.each do |legs| %>
-  <div class="col-md-4">
-    <div class="profile-wrapper">
-      <div class="profile-inner" style="background: url(<%= legs.picture_from_url(legs.leg_pic_url) %>)
-        no-repeat center; background-size:cover;">
-      </div>
-      <div class="description">
-        <h3><%= legs.fullName %></h3>
-        <h5>
-          <strong><%= legs.party %></strong>
-        </h5>
-        <hr>
-        <%= link_to "More Information +", legislator_path(legs), class: "btn btn-danger btn-block" %>
-      </div>
+<h1 class="text-center" id="legs">Indiana Legislators</h1>
+<div class="row" style="margin-top:20px; margin-bottom:20px; background-color:white;">
+
+<% @legislators.each do |leg| %>
+    <div class="col-md-3" style="margin-top:20px; margin-bottom:10px;">
+    			<div class="cuadro_intro_hover " style="background-color:#cccccc; background: url(<%= leg.leg_pic_url %>)
+            no-repeat center; background-size:cover; border-radius:10px 10px 0 0; box-shadow: 10px 0 5px 0 rgba(0,0,0,0.75);
+            ">
+				<p style="text-align:center; margin-top:20px;">
+				</p>
+				<div class="caption">
+					<div class="blur"></div>
+					<div class="caption-text">
+						<h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;"><%= leg.full_name %></h3>
+						<p>Session <%= leg.session %></p>
+						<%= link_to "Profile", legislator_path(id: leg.id), class: "glyphicon glyphicon-plus btn btn-default" %>
+					</div>
+				</div>
+			</div>
     </div>
-    <br>
-  </div>
-  <% end %>
+<% end %>
 </div>
