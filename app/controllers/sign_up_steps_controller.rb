@@ -4,7 +4,11 @@ class SignUpStepsController < ApplicationController
 
   def update
     @user = current_user
-    @user.attributes = user_params
+    params_hash = user_params
+    Rails.logger.info params_hash.inspect
+    params_hash[:status] = step.to_s
+    params_hash[:status] = 'active' if step == steps.last
+    @user.update_attributes(params_hash)
     render_wizard @user
   end
 
