@@ -42,7 +42,7 @@ end
 # Creates URL for database store
 def leg_pic_actual_url(cur_session, link)
 
-  "iga.in.gov/legislative/#{cur_session}/portraits/legislator_#{remove_front_of_url(link)}"
+  "http://iga.in.gov/legislative/#{cur_session}/portraits/legislator_#{remove_front_of_url(link)}"
 
 end
 
