@@ -27,8 +27,7 @@ class SignUpStepsController < ApplicationController
     root_path(current_user)
   end
 
-  def redirect_to_finish_wizard(options = nil)
+  def redirect_to_finish_wizard(_options = nil)
     redirect_to finish_wizard_path
   end
-
 end

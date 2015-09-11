@@ -1,37 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Legislators</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Position title</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Party</th>
-      <th>Link</th>
-      <th>Fullname</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @legislators.each do |legislator| %>
-      <tr>
-        <td><%= legislator.position_title %></td>
-        <td><%= legislator.firstName %></td>
-        <td><%= legislator.lastName %></td>
-        <td><%= legislator.party %></td>
-        <td><%= legislator.link %></td>
-        <td><%= legislator.fullName %></td>
-        <td><%= link_to 'Show', legislator %></td>
-        <td><%= link_to 'Edit', edit_legislator_path(legislator) %></td>
-        <td><%= link_to 'Destroy', legislator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Legislator', new_legislator_path %>
+<div class="row" id="runners">
+  <% @legislators.each do |legs| %>
+  <div class="col-md-4">
+    <div class="profile-wrapper">
+      <div class="profile-inner" style="background: url(<%= legs.picture_from_url(legs.leg_pic_url) %>)
+        no-repeat center; background-size:cover;">
+      </div>
+      <div class="description">
+        <h3><%= legs.fullName %></h3>
+        <h5>
+          <strong><%= legs.party %></strong>
+        </h5>
+        <hr>
+        <%= link_to "More Information +", legislator_path(legs), class: "btn btn-danger btn-block" %>
+      </div>
+    </div>
+    <br>
+  </div>
+  <% end %>
+</div>
