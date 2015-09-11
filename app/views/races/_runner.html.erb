@@ -1,19 +1,40 @@
+<nav class="fixed-runners navbar navbar-default navbar-fixed-top " role="navigation">
+  <div class="container">
+    <div class="row">
+      <% @candidates.each do |runner| %>
+      <div class="col-sm-4 text-center">
+        <h2><%= runner.position %></h2>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="row" style="margin-top:20px;">
+  <div class="col-xs-12 pull-right">
+    <%= link_to "Follow Election", follow_race_path(id: @race.id), method: :post, class: "btn-default btn-lg"%>
+    <!-- <%= link_to "Unfollow Election", unfollow_race_path(id: @race.id), method: :post, class: "btn-default btn-lg"%> -->
+  </div>
+</div>
+
 <div class="row" id="runners">
   <% @candidates.each do |runner| %>
   <div class="col-md-4">
     <div class="profile-wrapper">
       <div class="profile-inner" style="background: url(<%= runner.profile_image || runner.avatar.url(:medium) %>)
         no-repeat center; background-size:cover;">
-          <%= image_tag(runner.profile_image || runner.avatar.url(:medium), class: "small-thumb") %>
+        <%= image_tag(runner.profile_image || runner.avatar.url(:medium), class: "small-thumb") %>
       </div>
       <div class="description">
-         <h3><%= runner.position %></h3>
-          <h5> <strong><%= runner.party %></strong></h5>
-          <hr>
-          <%= link_to "More Information +", user_path(runner), class: "btn btn-danger btn-block" %>
+        <h3><%= runner.position %></h3>
+        <h5>
+          <strong><%= runner.party %></strong>
+        </h5>
+        <hr>
+        <%= link_to "More Information +", user_path(runner), class: "btn btn-danger btn-block" %>
       </div>
-       </div>
-      <br>
+    </div>
+    <br>
   </div>
   <% end %>
 </div>

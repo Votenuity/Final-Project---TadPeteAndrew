@@ -43,3 +43,19 @@ $(document).on("change", ".votemachine", function() {
         runner_two +
         runner_one + runner_three)) * 100).toFixed(0) + "% of the issues.</p>");
 });
+
+(function($) {
+  $(document).ready(function() {
+    $(".fixed-runners").hide();
+    $(function() {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() >
+          400) {
+          $('.fixed-runners').fadeIn();
+        } else {
+          $('.fixed-runners').fadeOut();
+        }
+      });
+    });
+  });
+}(jQuery));

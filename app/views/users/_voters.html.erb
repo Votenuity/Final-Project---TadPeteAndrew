@@ -19,19 +19,31 @@
   </div>
   <div class="col-xs-8 col-xs-offset-0 pull-right" id="runner-info">
     <div class="following_data"
-      <p><h3><strong>Candidates <%= possessive(user.first_name) %> following: </strong></h3> <%= user.family %></p>
+      <p><h3><strong>Candidates <%= possessive(user.first_name) %> following: </strong></h3>
+        <ul>
+        <% user.following_by_type('User').each do |people| %>
+          <li><h2><%= link_to "#{people.full_name}", user_path(people) %></h2></li>
+        <% end %>
+      </uL>
+      </p>
     </div>
-      <p><h3><strong>Races <%= possessive(user.first_name) %> following:</strong></h3> <%= user.education %></p>
+      <p><h3><strong>Races <%= possessive(user.first_name) %> following:</strong></h3>
+        <ul>
+        <% user.following_by_type('Race').each do |race| %>
+          <li><h2><%= link_to "#{race.title}", race_path(race) %></h2></li>
+        <% end %>
+      </uL>
+       </p>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
   <% if user.bio.blank? %>
   <% else %>
-    <h1 class="text-center"><strong>Biography</strong></h1>
+    <h1 class="text-center"><strong>About Me</strong></h1>
   <% end %>
   </div>
-  <div class="col-xs-12" id="user_bio">
+  <div class="col-xs-12" id="user_bios">
     <p><%= user.bio %></p>
   </div>
 </div>

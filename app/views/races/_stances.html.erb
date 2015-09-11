@@ -1,32 +1,31 @@
 <% @issues.each_with_index do |issue, index| %>
-  <div class="col-xs-12">
-    <h1 class="text-center"><strong><%= issue.name %></strong></h1>
-  </div>
+<div class="col-xs-12">
+  <h1 class="text-center">
+    <strong><%= issue.name %></strong>
+  </h1>
+</div>
 
-  <div class="row" id="stance">
-    <% @candidates.each do |stance| %>
-      <div class="col-xs-4 text-center">
-        <p class="lead"><%= stance.statement_by_issue(issue.name) %></p>
-      </div>
-    <% end %>
+<div class="row" id="stance">
+  <% @candidates.each do |stance| %>
+  <div class="col-xs-4 text-center">
+    <p class="lead"><%= stance.statement_by_issue(issue.name) %></p>
   </div>
+  <% end %>
+</div>
 
-  <div class ="text-center" id="checkboxes">
-    <div class="row" id="options">
-      <div class="col-xs-4">
-        <label class="radio-inline"><input class="runner_one votemachine"
-          type="radio" name="pete<%= index %>">I Agree</label>
-      </div>
-      <div class="col-xs-4">
-        <label class="radio-inline"><input class="runner_two votemachine"
-          type="radio" name="pete<%= index %>">I Agree</label>
-      </div>
-      <div class="col-xs-4">
-        <label class="radio-inline"><input class="runner_three votemachine"
-          type="radio" name="pete<%= index %>">I Agree</label>
-      </div>
+<div class="text-center" id="checkboxes">
+  <div class="row" id="options">
+    <div class="col-xs-4">
+      <label class="radio-inline"><input class="runner_one votemachine" name="pete<%= index %>" type="radio">I Agree</label>
+    </div>
+    <div class="col-xs-4">
+      <label class="radio-inline"><input class="runner_two votemachine" name="pete<%= index %>" type="radio">I Agree</label>
+    </div>
+    <div class="col-xs-4">
+      <label class="radio-inline"><input class="runner_three votemachine" name="pete<%= index %>" type="radio">I Agree</label>
     </div>
   </div>
+</div>
 <% end %>
 
 <div class="col-xs-12 text-center candidate_percentages" style="display: none;">

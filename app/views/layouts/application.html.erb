@@ -12,7 +12,7 @@
 
     <!-- Shows errors when one is present -->
       <div class="container" id="background">
-        <div class="text-center">
+        <div class="text-center" id="flash_hook">
           <% if flash[:error] %>
             <p class='error'><%=h flash[:error] %></p>
           <% end %>
