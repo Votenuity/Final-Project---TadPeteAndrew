@@ -16,9 +16,10 @@ def hparty(end_point)
 
 end
 
-# Turns JSON response into hashes all the way through
+# Turns JSON response into array of hashes all the way through
 def parse_me(json_obj)
 
+  # Error handling remnant
   begin
     puts json_obj.inspect
     JSON.parse(json_obj)
@@ -30,6 +31,7 @@ end
 
 # This group gets the URL for the picture of the Legislator
 
+# Conditions link for dynamic URL creation
 def remove_front_of_url(link)
 
   link.slice!(0..17)
@@ -37,26 +39,28 @@ def remove_front_of_url(link)
 
 end
 
-def leg_pic_actual_url(session, link)
+# Creates URL for database store
+def leg_pic_actual_url(cur_session, link)
 
-  "iga.in.gov/legislative/#{session}/portraits/legislator_#{remove_front_of_url(link)}"
+  "iga.in.gov/legislative/#{cur_session}/portraits/legislator_#{remove_front_of_url(link)}"
 
 end
 
 # This will create the Legislators and place them in the database
-
-def leg_grab(session)
+def leg_grab(cur_session)
 
   # Grabs JSON from API, using only endpoint, parses in to array of hashes
-  leg_hash = parsed("https://api.iga.in.gov/#{session}/legislators?per_page=160")
+  leg_hash = parsed("https://api.iga.in.gov/#{cur_session}/legislators?per_page=160")
 
 
   # Assigns each house member to a spot in the database
   leg_hash[:items].each do |house|
 
+    # Removes bad data from stream
+
     next if house[:link] == "/2014/legislators/timothy_harman_1112"
-    next if house[:link] == "/2013/legislators/vanessa_summers_231"
-    next if house[:link] == "/2013/legislators/greg_taylor_976"
+
+    # All API Calls
 
     leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
 
@@ -67,7 +71,9 @@ def leg_grab(session)
     house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
     house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
-    Legislator.create(session: session,
+    # Creates Legislators from API stream
+
+    Legislator.create(session: cur_session,
                       position_title: house[:position_title],
                       firstName: house[:firstName],
                       lastName: house[:lastName],
@@ -80,7 +86,7 @@ def leg_grab(session)
                       bill_co_authored: house_hash_detail_bills_co_authored[:items],
                       bill_sponsored: house_hash_detail_bills_sponsored[:items],
                       bill_co_sponsored: house_hash_detail_bills_co_sponsored[:items],
-                      leg_pic_url: leg_pic_actual_url(session, house[:link])
+                      leg_pic_url: leg_pic_actual_url(cur_session, house[:link])
                       )
 
 
@@ -88,5 +94,18 @@ def leg_grab(session)
 
 end
 
-session = 2015
-leg_grab(session)
+
+
+def seed_stored(cur_session)
+
+  until cur_session == 2013
+
+    leg_grab(cur_session)
+    cur_session = cur_session - 1
+
+  end
+
+end
+
+current_leg_session = 2015
+seed_stored(current_leg_session)
