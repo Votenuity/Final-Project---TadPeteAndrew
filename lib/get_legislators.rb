@@ -105,7 +105,7 @@ class LegislatorGrabber
 
     all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session}/bills")
 
-    all_bill_hash[:items].each do |item|
+    all_bills_hash[:items].each do |item|
 
       all_bills_session_details = parsed("https://api.iga.in.gov/#{item[:link]}")
 
