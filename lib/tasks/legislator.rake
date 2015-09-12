@@ -9,7 +9,8 @@ namespace :legislator do
       legs = LegislatorGrabber.new
 
       # legs.leg_grab(args.session)
-      legs.bill_grab(args.session)
+      legs.cill_grab(args.session)
+
 
   end
 
