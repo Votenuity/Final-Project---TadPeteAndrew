@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cills
   resources :bills, only: [:index, :show]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :races, only: [:show]
