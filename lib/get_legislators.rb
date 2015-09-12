@@ -101,17 +101,17 @@ class LegislatorGrabber
 
   end
 
-  def bill_grab
+  def bill_grab(cur_session)
 
-    all_bills_session = parsed("https://api.iga.in.gov/#{cur_session}/bills")
+    all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session}/bills")
 
-    bill_hash[:items].each do |item|
+    all_bill_hash[:items].each do |item|
 
       all_bills_session_details = parsed("https://api.iga.in.gov/#{item[:link]}")
 
       Bill.create(session: all_bills_session_details[:latestVersion][:year],
                         title: all_bills_session_details[:latestVersion][:title],
-                        shortDescription:[:latestVersion][:shortDescription]
+                        shortDescription:all_bills_session_details[:latestVersion][:shortDescription],
                         billName: all_bills_session_details[:latestVersion][:billName],
                         originChamber: all_bills_session_details[:originChamber],
                         currentChamber: all_bills_session_details[:currentChamber],
