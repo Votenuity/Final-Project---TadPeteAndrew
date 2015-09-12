@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BillsControllerTest < ActionController::TestCase
+class CillTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
