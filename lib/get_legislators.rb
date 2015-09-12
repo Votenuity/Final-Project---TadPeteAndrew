@@ -66,34 +66,34 @@ class LegislatorGrabber
       # All API Calls
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
-
-      house_hash_detail_bills = parsed("https://api.iga.in.gov#{leg_hash_detail[:bills][:link]}")
-
-      house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")
-      house_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:coauthored][:link]}")
-      house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
-      house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
-
-      all_bills_session = parsed("https://api.iga.in.gov/#{cur_session}/bills")
-
-      all_bills_session_details = parsed("https://api.iga.in.gov/#{cur_session}/bills/#{all_bills_session[:items][:link]}")
+      #
+      # house_hash_detail_bills = parsed("https://api.iga.in.gov#{leg_hash_detail[:bills][:link]}")
+      #
+      # house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")
+      # house_hash_detail_bills_co_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:coauthored][:link]}")
+      # house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
+      # house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
+      #
+      # all_bills_session = parsed("https://api.iga.in.gov/#{cur_session}/bills")
+      #
+      # all_bills_session_details = parsed("https://api.iga.in.gov/#{cur_session}/bills/#{all_bills_session[:items][:link]}")
 
       # Creates Legislators from API stream
 
       Legislator.create(session: cur_session,
-                        position_title: house[:position_title],
-                        firstName: house[:firstName],
-                        lastName: house[:lastName],
-                        party: house[:party],
-                        link: house[:link],
-                        fullName: house[:fullName],
-                        chamber: leg_hash_detail[:chamber][:name],
-                        committees: leg_hash_detail[:committees],
-                        bill_authored: house_hash_detail_bills_authored[:items],
-                        bill_co_authored: house_hash_detail_bills_co_authored[:items],
-                        bill_sponsored: house_hash_detail_bills_sponsored[:items],
-                        bill_co_sponsored: house_hash_detail_bills_co_sponsored[:items],
-                        leg_pic_url: leg_pic_actual_url(cur_session, house[:link])
+                        # position_title: house[:position_title],
+                        # firstName: house[:firstName],
+                        # lastName: house[:lastName],
+                        # party: house[:party],
+                        # link: house[:link],
+                        # fullName: house[:fullName],
+                        # chamber: leg_hash_detail[:chamber][:name],
+                        # committees: leg_hash_detail[:committees],
+                        # bill_authored: house_hash_detail_bills_authored[:items],
+                        # bill_co_authored: house_hash_detail_bills_co_authored[:items],
+                        # bill_sponsored: house_hash_detail_bills_sponsored[:items],
+                        # bill_co_sponsored: house_hash_detail_bills_co_sponsored[:items],
+                        # leg_pic_url: leg_pic_actual_url(cur_session, house[:link])
                         )
 
 

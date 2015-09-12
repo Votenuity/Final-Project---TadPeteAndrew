@@ -1,2 +1,2 @@
-class Bill < ActiveRecord::Base
+class BILL < ActiveRecord::Base
 end
