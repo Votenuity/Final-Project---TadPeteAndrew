@@ -1,25 +1,20 @@
 <div class="row" id="show-profile">
   <div class="col-md-4">
     <div class="profile-wrapper">
-      <div class="profile-inner" style="background: url(<%= @legislator.leg_pic_url %>)
+      <div class="profile-inner" style="background: url(<%= SHR_Bill.jpg%>)
         no-repeat center center; ">
       </div>
       <div class="description">
-         <h3><%= @legislator.full_name %></h3>
-          <h5> <strong><%= @legislator.party %></strong></h5>
+         <h3></h3>
+          <h5> <strong></strong></h5>
           <hr>
-          Session: <%= @legislator.session %>
+          Session:
       </div>
        </div>
       <br>
   </div>
   <div class="col-xs-8 col-xs-offset-0 pull-right" id="runner-info">
-      <p><h3><strong>Committees:</strong></h3>
-        <% @legislator.committees.each do |hash| %>
-        <ul>
-          <li><%= hash["name"] %></li>
-        </ul>
-        <% end %>
+      <p><h3><strong>Committees:</strong</h3>
       </p>
   </div>
 </div>
@@ -35,17 +30,13 @@
     </div>
   <div class="col-xs-6 pull-left outer-scroll user_bios2" style="margin-left:70px;">
     <ul class="scrolling-bills">
-    <% @legislator.bill_authored.each do |hash| %>
-      <li class="list-unstyled"><strong><%= hash["billName"] %></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
-    <% end %>
+      <li class="list-unstyled"><strong></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
     </ul>
   </div>
 
   <div class="col-xs-6 pull-right outer-scroll user_bios2" style="margin-right:70px;">
     <ul class="scrolling-bills">
-    <% @legislator.bill_co_authored.each do |hash| %>
-      <li class="list-unstyled"><strong><%= hash["billName"] %></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
-    <% end %>
+      <li class="list-unstyled"><strong> </strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
     </ul>
   </div>
 </div>
@@ -61,17 +52,13 @@
     </div>
     <div class="col-xs-6 pull-left outer-scroll user_bios2" style="margin-left:70px;">
       <ul class="scrolling-bills">
-      <% @legislator.bill_authored.each do |hash| %>
-        <li class="list-unstyled"><strong><%= hash["billName"] %></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
-      <% end %>
+        <li class="list-unstyled"><strong></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
       </ul>
     </div>
 
     <div class="col-xs-6 pull-right outer-scroll user_bios2" style="margin-right:70px;">
       <ul class="scrolling-bills">
-      <% @legislator.bill_co_authored.each do |hash| %>
-        <li class="list-unstyled"><strong><%= hash["billName"] %></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
-      <% end %>
+        <li class="list-unstyled"><strong></strong>: This is the title to the bill. <%= link_to "Link To Bill", "#" %></li>
       </ul>
     </div>
   </div>
