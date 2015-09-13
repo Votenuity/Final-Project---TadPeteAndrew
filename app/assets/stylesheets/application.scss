@@ -14,6 +14,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "races";
+@import "cills";
 
 html {
   background-color: lightgray !important;
@@ -107,6 +108,16 @@ h4 {
 }
 #runner-info p {
   margin: 10px;
+  font-weight: 300;
+  line-height: 1em;
+}
+.bill-info {
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: white;
+}
+.bill-info p {
+  margin: 20px;
   font-weight: 300;
   line-height: 1em;
 }

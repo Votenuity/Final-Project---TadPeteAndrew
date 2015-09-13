@@ -8,4 +8,8 @@ class Legislator < ActiveRecord::Base
     firstName + ' ' + lastName
   end
 
+  def shortDescription(bill)
+    Cill.where(billName: bill).first["shortDescription"]
+  end
+
 end
