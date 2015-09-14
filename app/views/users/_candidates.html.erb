@@ -10,9 +10,9 @@
           <hr>
           <div class="row">
             <ul class="list-inline">
-              <%= render partial: 'users/candidates_follow', locals: {user: @user} %>
+              <li><%= render partial: 'users/candidates_follow', locals: {user: @user} %></li>
               <li><h4>Followers</h4><br><h4><%= user.followers_count %></h4></li>
-              <%= render partial: 'users/candidates_unfollow', locals: {user: @user} %>
+              <li><%= render partial: 'users/candidates_unfollow', locals: {user: @user} %></li>
             </ul>
           </div>
       </div>

@@ -1,5 +1,8 @@
 <% if user_signed_in? %>
-  <% unless user.followed_by?(current_user) %>
-    <li><%= link_to "Follow", follow_path(id: user.id), method: :post, class: "btn-primary btn-lg" %></li>
+
+  <% if user.followed_by?(current_user) %>
+    <li><%= button_to "Follow", follow_path(id: user.id), method: :post, class: "btn btn-primary", disabled: true  %></li>
+  <% else %>
+    <li><%= button_to "Follow", follow_path(id: user.id), method: :post, class: "btn btn-primary" %></li>
   <% end %>
 <% end %>

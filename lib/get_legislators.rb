@@ -62,11 +62,14 @@ class LegislatorGrabber
       # Removes bad data from stream
 
       next if house[:link] == "/2014/legislators/timothy_harman_1112"
+      next if house[:link] == "/2015/legislators/dale_devon_1108"
+      next if house[:link] == "/2015/legislators/woody_burton_235"
+      next if house[:link] == "/2015/legislators/jud_mcmillin_1032"
 
       # All API Calls
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
-      
+
       house_hash_detail_bills = parsed("https://api.iga.in.gov#{leg_hash_detail[:bills][:link]}")
 
       house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")
