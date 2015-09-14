@@ -37,7 +37,7 @@
     <ul class="scrolling-bills">
       <% @legislator.bill_authored.each do |hash| %>
         <li class="list-unstyled"><strong><%= hash["billName"] %></strong>:
-          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %>
+          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", bill_path(hash["billName"]) %>
         </li>
       <% end %>
     </ul>
@@ -47,7 +47,7 @@
     <ul class="scrolling-bills">
       <% @legislator.bill_co_authored.each do |hash| %>
         <li class="list-unstyled"><strong><%= hash["billName"] %></strong>:
-          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %></li>
+          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", bill_path(hash["billName"]) %></li>
       <% end %>
     </ul>
   </div>
@@ -66,7 +66,7 @@
     <ul class="scrolling-bills">
       <% @legislator.bill_authored.each do |hash| %>
         <li class="list-unstyled"><strong><%= hash["billName"] %></strong>:
-          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %></li>
+          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", bill_path(hash["billName"]) %></li>
       <% end %>
     </ul>
   </div>
@@ -75,7 +75,7 @@
     <ul class="scrolling-bills">
       <% @legislator.bill_co_authored.each do |hash| %>
         <li class="list-unstyled"><strong><%= hash["billName"] %></strong>:
-          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %></li>
+          <%= truncate(@legislator.shortDescription(hash["billName"]), length: 30) %>. <%= link_to "Link To Bill", bill_path(hash["billName"]) %></li>
       <% end %>
     </ul>
   </div>
