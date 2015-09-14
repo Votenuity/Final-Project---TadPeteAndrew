@@ -66,7 +66,7 @@ class LegislatorGrabber
       # All API Calls
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
-
+      
       house_hash_detail_bills = parsed("https://api.iga.in.gov#{leg_hash_detail[:bills][:link]}")
 
       house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")

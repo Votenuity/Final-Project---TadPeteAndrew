@@ -11,7 +11,7 @@ namespace :legislator do
 
         data_limit = 2013
         session = 2015
-
+    
         until session == data_limit
 
           legs.leg_grab(session)

@@ -30,4 +30,5 @@ class SignUpStepsController < ApplicationController
   def redirect_to_finish_wizard(_options = nil)
     redirect_to finish_wizard_path
   end
+
 end

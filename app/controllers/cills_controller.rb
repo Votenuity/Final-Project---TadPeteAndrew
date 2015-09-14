@@ -1,28 +1,21 @@
 class CillsController < ApplicationController
   before_action :set_cill, only: [:show, :edit, :update, :destroy]
 
-  # GET /cills
-  # GET /cills.json
   def index
     @cills = Cill.all
   end
 
-  # GET /cills/1
-  # GET /cills/1.json
   def show
+
   end
 
-  # GET /cills/new
   def new
     @cill = Cill.new
   end
 
-  # GET /cills/1/edit
   def edit
   end
 
-  # POST /cills
-  # POST /cills.json
   def create
     @cill = Cill.new(cill_params)
 
@@ -37,8 +30,6 @@ class CillsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cills/1
-  # PATCH/PUT /cills/1.json
   def update
     respond_to do |format|
       if @cill.update(cill_params)
@@ -51,8 +42,6 @@ class CillsController < ApplicationController
     end
   end
 
-  # DELETE /cills/1
-  # DELETE /cills/1.json
   def destroy
     @cill.destroy
     respond_to do |format|
@@ -62,12 +51,11 @@ class CillsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_cill
-      @cill = Cill.find(params[:id])
+      @cill = Cill.find_by_billName(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def cill_params
       params[:cill]
     end

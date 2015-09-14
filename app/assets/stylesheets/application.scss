@@ -14,6 +14,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "races";
+@import "cills";
 
 html {
   background-color: lightgray !important;
@@ -110,6 +111,16 @@ h4 {
   font-weight: 300;
   line-height: 1em;
 }
+.bill-info {
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: white;
+}
+.bill-info p {
+  margin: 20px;
+  font-weight: 300;
+  line-height: 1em;
+}
 #stance {
   border-radius: 10px 10px 10px 10px !important;
   -moz-border-radius: 10px 10px 10px 10px !important;
@@ -193,8 +204,6 @@ h4 {
 #options {
   padding-left: 0;
   padding-right: 0;
-
-  // box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
   margin-right: 0.1em;
   border-top: 0;
   border-bottom: 4px solid #00688b;
@@ -224,6 +233,7 @@ h4 {
   font-size: 17px;
   width: auto;
   height: 500px;
+  padding-right: 0px;
 }
 #legs {
   text-shadow: 10px solid black;

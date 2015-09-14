@@ -6,6 +6,8 @@ class LegislatorsController < ApplicationController
   end
 
   def show
+    binding.pry
+    @cill = Cill.where(billName: params[:billName])
   end
 
   def new
