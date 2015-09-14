@@ -23,6 +23,7 @@ gem "paperclip"
 gem "cancan"
 gem "httparty"
 gem "rails_admin"
+gem 'pg_search'
 
 
 group :development, :test do
