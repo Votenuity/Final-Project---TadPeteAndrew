@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :follow, :unfollow]
   respond_to :html, :json, :js
-  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -41,6 +40,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:bio)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :party, :profile_image, :avatar, :bio)
   end
 end

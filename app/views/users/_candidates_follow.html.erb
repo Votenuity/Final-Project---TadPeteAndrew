@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <% unless user.followed_by?(current_user) %>
+    <li><%= link_to "Follow", follow_path(id: user.id), method: :post, class: "btn-primary btn-lg" %></li>
+  <% end %>
+<% end %>
