@@ -11,11 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912204009) do
+ActiveRecord::Schema.define(version: 20150914151541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "bills", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "session",          default: ""
+    t.string   "title",            default: ""
+    t.text     "shortDescription", default: ""
+    t.string   "billName",         default: ""
+    t.string   "originChamber",    default: ""
+    t.string   "currentChamber",   default: ""
+    t.string   "bill_type",        default: ""
+    t.hstore   "authors",          default: [],              array: true
+    t.hstore   "coauthors",        default: [],              array: true
+    t.hstore   "sponsors",         default: [],              array: true
+    t.hstore   "cosponsors",       default: [],              array: true
+    t.hstore   "advisors",         default: [],              array: true
+    t.string   "link",             default: ""
+    t.text     "digest",           default: ""
+  end
 
   create_table "cills", force: :cascade do |t|
     t.datetime "created_at",                    null: false
