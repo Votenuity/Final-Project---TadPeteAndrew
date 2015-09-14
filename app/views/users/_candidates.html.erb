@@ -10,9 +10,9 @@
           <hr>
           <div class="row">
             <ul class="list-inline">
-              <li><%= button_to "Follow", follow_path(id: user.id), method: :post, class: "btn-primary btn-lg" %></li>
+              <%= render partial: 'users/candidates_follow', locals: {user: @user} %>
               <li><h4>Followers</h4><br><h4><%= user.followers_count %></h4></li>
-              <li><%= button_to "Unfollow", unfollow_path(id: user.id), method: :post, class: "btn-primary btn-lg" %></li>
+              <%= render partial: 'users/candidates_unfollow', locals: {user: @user} %>
             </ul>
           </div>
       </div>
