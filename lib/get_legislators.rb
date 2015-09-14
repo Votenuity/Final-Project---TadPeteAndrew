@@ -74,10 +74,6 @@ class LegislatorGrabber
       house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
       house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
-      all_bills_session = parsed("https://api.iga.in.gov/#{cur_session}/bills")
-
-      all_bills_session_details = parsed("https://api.iga.in.gov/#{cur_session}/bills/#{all_bills_session[:items][:link]}")
-
       # Creates Legislators from API stream
 
       Legislator.create(session: cur_session,
@@ -103,7 +99,7 @@ class LegislatorGrabber
 
   def cill_grab(cur_session)
 
-    all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session}/bills")
+    all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session}/bills?per_page=1560")
 
     all_bills_hash[:items].each do |item|
 
