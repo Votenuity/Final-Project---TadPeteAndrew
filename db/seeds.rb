@@ -151,16 +151,6 @@ Race.create(:title => "The Third District Race",
             :district => 3
             )
 
-Issue.create(:name => "Unemployment")
-
-Issue.create(:name => "Foreign Policy")
-
-Issue.create(:name => "Abortion")
-
-Issue.create(:name => "Immigration")
-
-Issue.create(:name => "Gun Control")
-
 #using statement_for_issue method from the users model to give a candidate a
 # stance on an issue
 

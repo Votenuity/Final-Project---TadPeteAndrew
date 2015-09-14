@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
   <% unless @race.followed_by?(current_user) %>
-    <%= link_to "Follow", follow_race_path(id: @race.id), method: :post, class: "btn-primary btn-lg" %>
+    <%= link_to "Follow", follow_race_path(id: @race.id), method: :post, class: "btn-default btn-lg" %>
   <% end %>
 <% end %>
