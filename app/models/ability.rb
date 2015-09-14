@@ -2,16 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    current_user ||= User.new # used for a guest user
-
-      if current_user && current_user.role == "admin"
+    user ||= User.new # used for a guest user
+      if user.role == "admin"
         can :manage, :all
         can :access, :rails_admin
         can :dashboard
       else
         can :read, :all
-        can :update, User do |user|
-          user.id == current_user.id
+        can :update, User do |user2|
+          user2.id == user.id
         end
       end
 
