@@ -23,6 +23,8 @@ gem "paperclip"
 gem "cancan"
 gem "httparty"
 gem "rails_admin"
+gem 'pg_search'
+gem 'aws-sdk', '~> 2'
 
 
 group :development, :test do

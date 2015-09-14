@@ -62,6 +62,9 @@ class LegislatorGrabber
       # Removes bad data from stream
 
       next if house[:link] == "/2014/legislators/timothy_harman_1112"
+      next if house[:link] == "/2015/legislators/dale_devon_1108"
+      next if house[:link] == "/2015/legislators/woody_burton_235"
+      next if house[:link] == "/2015/legislators/jud_mcmillin_1032"
 
       # All API Calls
 

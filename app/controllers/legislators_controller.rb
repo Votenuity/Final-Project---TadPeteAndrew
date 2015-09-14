@@ -2,7 +2,8 @@ class LegislatorsController < ApplicationController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
 
   def index
-    @legislators = Legislator.all
+    @legislators15 = Legislator.where(session: "2015")
+    @legislators14 = Legislator.where(session: "2014")
   end
 
   def show

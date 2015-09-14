@@ -14,10 +14,10 @@
 
   <div class="col-xs-8 col-xs-offset-0 pull-right bill-info">
     <p style="margin-bottom:4px;"><strong style="font-size:22px;">Authors:</strong> <%= @bill.authors.collect{|x| x["fullName"]}.join(", ") %></p>
-    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-authors:</strong> <%= @bill.coauthors.collect{|x| x["fullName"]}.join(", ") %></p>
-    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Sponsors:</strong> <%= @bill.sponsors.collect{|x| x["fullName"]}.join(", ") %></p>
-    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-Sponsors:</strong> <%= @bill.cosponsors.collect{|x| x["fullName"]}.join(", ") %></p>
-    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Advisors:</strong> <%= @bill.advisors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;"><%= display_coauthors %></strong> <%= @bill.coauthors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;"><%= display_sponsors %></strong> <%= @bill.sponsors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;"><%= display_cosponsors %></strong> <%= @bill.cosponsors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;"><%= display_advisors %></strong> <%= @bill.advisors.collect{|x| x["fullName"]}.join(", ") %></p>
   </div>
 </div>
 
