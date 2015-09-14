@@ -36,9 +36,8 @@
   <div class="col-xs-6 pull-left outer-scroll user_bios2" style="margin-left:70px;">
     <ul class="scrolling-bills">
       <% @legislator.bill_authored.each do |hash| %>
-        <%= @billName = hash["billName"] %>
         <li class="list-unstyled"><strong><%= hash["billName"] %></strong>:
-          <%= @legislator.shortDescription(@billName) %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %>
+          <%= @legislator.shortDescription("HB1001") %>. <%= link_to "Link To Bill", cill_path(hash["billName"]) %>
         </li>
       <% end %>
     </ul>

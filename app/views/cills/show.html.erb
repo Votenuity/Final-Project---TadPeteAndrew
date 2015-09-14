@@ -1,7 +1,7 @@
 <div class="row" style="margin-top:20px;" id="show-profile">
   <div class="col-md-4">
     <div class="profile-wrapper">
-      <div class="profile-inner" style="background: url('race1.jpg')
+      <div class="profile-inner" style="background: url('bill.png')
         no-repeat center center; ">
       </div>
       <div class="description">
@@ -17,7 +17,7 @@
     <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-authors:</strong> <%= @cill.coauthors.collect{|x| x["fullName"]}.join(", ") %></p>
     <p style="margin-bottom:4px;"><strong style="font-size:22px;">Sponsors:</strong> <%= @cill.sponsors.collect{|x| x["fullName"]}.join(", ") %></p>
     <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-Sponsors:</strong> <%= @cill.cosponsors.collect{|x| x["fullName"]}.join(", ") %></p>
-    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Adivsors:</strong> <%= @cill.advisors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Advisors:</strong> <%= @cill.advisors.collect{|x| x["fullName"]}.join(", ") %></p>
   </div>
 </div>
 
