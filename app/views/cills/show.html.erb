@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row" style="margin-top:20px;" id="show-profile">
+  <div class="col-md-4">
+    <div class="profile-wrapper">
+      <div class="profile-inner" style="background: url('bill.png')
+        no-repeat center center; ">
+      </div>
+      <div class="description">
+        <hr>
+          <%= @cill.shortDescription %>
+      </div>
+    </div>
+    <br>
+  </div>
 
-<%= link_to 'Edit', edit_cill_path(@cill) %> |
-<%= link_to 'Back', cills_path %>
+  <div class="col-xs-8 col-xs-offset-0 pull-right bill-info">
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Authors:</strong> <%= @cill.authors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-authors:</strong> <%= @cill.coauthors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Sponsors:</strong> <%= @cill.sponsors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Co-Sponsors:</strong> <%= @cill.cosponsors.collect{|x| x["fullName"]}.join(", ") %></p>
+    <p style="margin-bottom:4px;"><strong style="font-size:22px;">Advisors:</strong> <%= @cill.advisors.collect{|x| x["fullName"]}.join(", ") %></p>
+  </div>
+</div>
+
+<div class="row more-less" id="digest">
+  <div class="col-xs-12">
+    <h1 class="text-center"><strong>Digest</strong></h1>
+  </div>
+  <div class="col-xs-12 more-block" id="user_bios">
+    <p><%= @cill.digest %></p>
+  </div>
+</div>
