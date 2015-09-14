@@ -45,7 +45,7 @@ class LegislatorGrabber
   # Creates URL for database store
   def leg_pic_actual_url(cur_session, link)
 
-    "http://iga.in.gov/legislative/#{cur_session}/portraits/legislator_#{remove_front_of_url(link)}"
+    "http://iga.in.gov/legislative/#{cur_session.to_s}/portraits/legislator_#{remove_front_of_url(link)}"
 
   end
 
@@ -53,7 +53,7 @@ class LegislatorGrabber
   def leg_grab(cur_session)
 
     # Grabs JSON from API, using only endpoint, parses in to array of hashes
-    leg_hash = parsed("https://api.iga.in.gov/#{cur_session}/legislators?per_page=160")
+    leg_hash = parsed("https://api.iga.in.gov/#{cur_session.to_s}/legislators?per_page=160")
 
 
     # Assigns each house member to a spot in the database
@@ -74,13 +74,9 @@ class LegislatorGrabber
       house_hash_detail_bills_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:sponsored][:link]}")
       house_hash_detail_bills_co_sponsored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:cosponsored][:link]}")
 
-      all_bills_session = parsed("https://api.iga.in.gov/#{cur_session}/bills")
-
-      all_bills_session_details = parsed("https://api.iga.in.gov/#{cur_session}/bills/#{all_bills_session[:items][:link]}")
-
       # Creates Legislators from API stream
 
-      Legislator.create(session: cur_session,
+      Legislator.create(session: cur_session.to_s,
                         position_title: house[:position_title],
                         firstName: house[:firstName],
                         lastName: house[:lastName],
@@ -103,7 +99,7 @@ class LegislatorGrabber
 
   def cill_grab(cur_session)
 
-    all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session}/bills")
+    all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session.to_s}/bills?per_page=1560")
 
     all_bills_hash[:items].each do |item|
 
