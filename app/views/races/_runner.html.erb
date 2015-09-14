@@ -12,8 +12,8 @@
 
 <div class="row" style="margin-top:20px;">
   <div class="col-xs-12 pull-right">
-    <%= link_to "Follow Election", follow_race_path(id: @race.id), method: :post, class: "btn-default btn-lg"%>
-    <!-- <%= link_to "Unfollow Election", unfollow_race_path(id: @race.id), method: :post, class: "btn-default btn-lg"%> -->
+    <%= render partial: 'races/follow_race'%>
+    <%= render partial: 'races/unfollow_race'%>
   </div>
 </div>
 
