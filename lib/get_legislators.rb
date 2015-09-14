@@ -66,7 +66,7 @@ class LegislatorGrabber
       # All API Calls
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
-      
+
       house_hash_detail_bills = parsed("https://api.iga.in.gov#{leg_hash_detail[:bills][:link]}")
 
       house_hash_detail_bills_authored = parsed("https://api.iga.in.gov#{house_hash_detail_bills[:authored][:link]}")
@@ -97,7 +97,7 @@ class LegislatorGrabber
 
   end
 
-  def cill_grab(cur_session)
+  def bill_grab(cur_session)
 
     all_bills_hash = parsed("https://api.iga.in.gov/#{cur_session.to_s}/bills?per_page=1560")
 
@@ -105,13 +105,13 @@ class LegislatorGrabber
 
       all_bills_session_details = parsed("https://api.iga.in.gov/#{item[:link]}")
 
-      Cill.create(session: all_bills_session_details[:latestVersion][:year],
+      Bill.create(session: all_bills_session_details[:latestVersion][:year],
                         title: all_bills_session_details[:latestVersion][:title],
                         shortDescription:all_bills_session_details[:latestVersion][:shortDescription],
                         billName: all_bills_session_details[:latestVersion][:billName],
                         originChamber: all_bills_session_details[:originChamber],
                         currentChamber: all_bills_session_details[:currentChamber],
-                        cill_type: all_bills_session_details[:type],
+                        bill_type: all_bills_session_details[:type],
                         authors: all_bills_session_details[:latestVersion][:authors],
                         coauthors: all_bills_session_details[:latestVersion][:coauthors],
                         sponsors: all_bills_session_details[:latestVersion][:sponsors],

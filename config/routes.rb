@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bills, only: [:show]
   resources :cills
-  resources :bills, only: [:index, :show]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :races, only: [:show]
   post 'races/follow' => 'races#follow', as: :follow_race
