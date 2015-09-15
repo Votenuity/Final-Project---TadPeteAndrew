@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914201759) do
+ActiveRecord::Schema.define(version: 20150915142331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,25 @@ ActiveRecord::Schema.define(version: 20150914201759) do
     t.hstore   "advisors",         default: [],              array: true
     t.string   "link",             default: ""
     t.text     "digest",           default: ""
+  end
+
+  create_table "cills", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "session",          default: ""
+    t.string   "title",            default: ""
+    t.text     "shortDescription", default: ""
+    t.string   "billName",         default: ""
+    t.string   "originChamber",    default: ""
+    t.string   "currentChamber",   default: ""
+    t.hstore   "authors",          default: [],              array: true
+    t.hstore   "coauthors",        default: [],              array: true
+    t.hstore   "sponsors",         default: [],              array: true
+    t.hstore   "cosponsors",       default: [],              array: true
+    t.hstore   "advisors",         default: [],              array: true
+    t.string   "link",             default: ""
+    t.text     "digest",           default: ""
+    t.string   "cill_type",        default: ""
   end
 
   create_table "follows", force: :cascade do |t|
@@ -73,6 +92,16 @@ ActiveRecord::Schema.define(version: 20150914201759) do
     t.string   "leg_pic_url",       default: ""
     t.string   "session",           default: ""
   end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "races", force: :cascade do |t|
     t.string   "title"
