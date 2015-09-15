@@ -2,7 +2,8 @@ class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bills = Bill.all
+    @bills15 = Bill.where(session: "2015")
+    @bills14 = Bill.where(session: "2014")
   end
 
   def show
