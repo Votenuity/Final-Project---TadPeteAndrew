@@ -5,7 +5,6 @@ class SignUpStepsController < ApplicationController
   def update
     @user = current_user
     params_hash = user_params
-    Rails.logger.info params_hash.inspect
     params_hash[:status] = step.to_s
     params_hash[:status] = 'active' if step == steps.last
     @user.update_attributes(params_hash)
@@ -28,7 +27,7 @@ class SignUpStepsController < ApplicationController
   end
 
   def redirect_to_finish_wizard(_options = nil)
-    redirect_to finish_wizard_path
+    redirect_to finish_wizard_path, notice: "Thank you for signing up with Votenuity."
   end
 
 end
