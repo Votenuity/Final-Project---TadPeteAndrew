@@ -7,7 +7,7 @@ class LegislatorsController < ApplicationController
   end
 
   def show
-    @cill = Cill.where(billName: params[:billName])
+    @bill = Bill.where(billName: params[:billName])
   end
 
   def new
