@@ -1,7 +1,7 @@
 #Admins
 User.create(:email => 'Andrew@Riley.com', :password => 'password', :password_confirmation => 'password', :role => "admin", :first_name => 'Andrew', :last_name => 'Riley',)
-User.create(:email => 'Tad@Sherlock.com', :password => 'password', :password_confirmation => 'password', :role => 'admin', :first_name => 'Tad', :last_name => 'Sherlock',)
-User.create(:email => 'Silas@Tolliver.com', :password => 'password', :password_confirmation => 'password', :role => 'admin', :first_name => 'Pete', :last_name => 'Tolliver',)
+User.create(:email => 'Tad@Sherlock.com', :password => 'password', :password_confirmation => 'password', :role => "admin", :first_name => 'Tad', :last_name => 'Sherlock',)
+User.create(:email => 'Silas@Tolliver.com', :password => 'password', :password_confirmation => 'password', :role => "admin", :first_name => 'Pete', :last_name => 'Tolliver',)
 
 #Candidates
 donald = User.create(:email => 'Donald@Trump.com',

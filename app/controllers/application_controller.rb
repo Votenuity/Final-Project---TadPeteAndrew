@@ -26,5 +26,4 @@ class ApplicationController < ActionController::Base
     @races = Race.all
   end
 
-  private
 end
