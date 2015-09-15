@@ -9,7 +9,7 @@ class Legislator < ActiveRecord::Base
   end
 
   def shortDescription(bill)
-    Cill.where(billName: bill).first["shortDescription"]
+    Bill.where(billName: bill).first["shortDescription"]
   end
 
 end

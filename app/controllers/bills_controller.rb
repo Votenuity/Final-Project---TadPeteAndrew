@@ -2,7 +2,7 @@ class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bills = bill.all
+    @bills = Bill.all
   end
 
   def show
@@ -10,14 +10,14 @@ class BillsController < ApplicationController
   end
 
   def new
-    @bill = bill.new
+    @bill = Bill.new
   end
 
   def edit
   end
 
   def create
-    @bill = bill.new(bill_params)
+    @bill = Bill.new(bill_params)
 
     respond_to do |format|
       if @bill.save
@@ -53,11 +53,10 @@ class BillsController < ApplicationController
   private
 
     def set_bill
-      @bill = bill.find_by_billName(params[:id])
+      @bill = Bill.find_by_billName(params[:id])
     end
 
     def bill_params
       params[:bill]
     end
-end
 end
