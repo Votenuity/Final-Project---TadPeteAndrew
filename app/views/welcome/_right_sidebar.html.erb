@@ -3,12 +3,15 @@
           <!-- start single widget -->
           <div class="single_widget">
            <h2>Quick Navigation</h2>
+
            <ul>
-             <li class="cat-item"><a href="#">Legislators</a></li>
-             <li class="cat-item"><a href="#">Current Elections</a></li>
-             <li class="cat-item"><a href="#">Bills from 2015</a></li>
-             <li class="cat-item"><a href="#">Bills from 2014</a></li>
-             <li class="cat-item"><a href="#">Profile</a></li>
+             <% @races.each do |race| %>
+             <li><%= link_to race.title, race_path(race) %></li>
+             <% end %>
+             <li><%= link_to "Legislators", legislators_path %></li>
+             <li><%= link_to "Bills from 2015", bills_session_path("2015") %></li>
+             <li><%= link_to "Bills from 2014", bills_session_path("2014") %></li>
+             <li><%= link_to "Profile", user_path(id: current_user.id) %></li>
            </ul>
           </div><!-- End single widget -->
            <!-- start single widget -->

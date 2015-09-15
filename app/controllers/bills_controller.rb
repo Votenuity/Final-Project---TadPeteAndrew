@@ -2,8 +2,7 @@ class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bills15 = Bill.where(session: "2015")
-    @bills14 = Bill.where(session: "2014")
+    sessions_for_bills
   end
 
   def show
@@ -49,6 +48,19 @@ class BillsController < ApplicationController
   end
 
   private
+
+    def sessions_for_bills
+      if params[:session] == "2015"
+        @bills = Bill.where(session: "2015")
+      elsif params[:session] == "2014"
+        @bills = Bill.where(session: "2014")
+      elsif params[:session] != "2015" || "2014"
+        params[:session] = nil
+        @bills = Bill.all
+      else
+        @bills = Bill.all
+      end
+    end
 
     def set_bill
       @bill = Bill.find_by_billName(params[:id])
