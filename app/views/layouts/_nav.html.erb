@@ -1,13 +1,15 @@
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container" id="nav-top">
     <div class="navbar-header">
-      <%= link_to "Votenuity™", root_path, class: "navbar-brand" %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></li>
+        <% if user_signed_in? && current_user.role == "admin" %>
+        <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: 'navbar-link' %></li>
+        <% end %>
+      </ul>
     </div>
-    <% if user_signed_in? && current_user.role == "admin" %>
-    <div class="navbar-header text-right">
-      <%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: "navbar-brand" %>
-    </div>
-    <% end %>
+
+
 
     <div id="navbar">
       <ul class="nav navbar-nav navbar-right">

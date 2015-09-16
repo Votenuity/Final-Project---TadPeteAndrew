@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :bills, only: [:show, :index]
+  get 'bills/sessions/:session' => 'bills#index', as: 'bills_session'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {registrations: "registrations"}
