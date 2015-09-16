@@ -48,10 +48,10 @@
       </div>
 
 			<div class="footer-right">
-        <form method="get" action="#">
-					<input placeholder="Search Votenuity" name="search" />
-					<i class="fa fa-search"></i>
-				</form>
+        <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
+        <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search...', :autocomplete => :off, class: "form-control"  %>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
+        <% end %>
       </div>
 
 		</footer>

@@ -2,8 +2,13 @@ class LegislatorsController < ApplicationController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
 
   def index
-    @legislators15 = Legislator.where(session: "2015")
-    @legislators14 = Legislator.where(session: "2014")
+    if params[:search_item]
+      @legislators15 = Legislator.search_by_full_name(params[:search_item]).where(session: "2015")
+      @legislators14 = Legislator.search_by_full_name(params[:search_item]).where(session: "2014")
+    else
+      @legislators15 = Legislator.where(session: "2015")
+      @legislators14 = Legislator.where(session: "2014")
+    end
   end
 
   def show

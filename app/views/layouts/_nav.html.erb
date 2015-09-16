@@ -25,7 +25,7 @@
         <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link' %></li>
         <li><%= link_to "Sign In", user_session_path, :class => 'navbar-link' %></li>
         <% end %>
-        <%= form_tag "#", :method => :get, class: "navbar-form navbar-left" do %>
+        <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
         <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search...', :autocomplete => :off, class: "form-control"  %>
         <%= submit_tag "Search", class: "btn btn-danger" %>
         <% end %>
