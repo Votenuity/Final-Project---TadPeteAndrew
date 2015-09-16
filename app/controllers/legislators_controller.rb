@@ -6,8 +6,8 @@ class LegislatorsController < ApplicationController
       @legislators15 = Legislator.search_by_full_name(params[:search_item]).where(session: "2015")
       @legislators14 = Legislator.search_by_full_name(params[:search_item]).where(session: "2014")
     else
-      @legislators15 = Legislator.where(session: "2015")
-      @legislators14 = Legislator.where(session: "2014")
+      @legislators15 = Legislator.where(session: "2015").order(lastName: :asc)
+      @legislators14 = Legislator.where(session: "2014").order(lastName: :asc)
     end
   end
 

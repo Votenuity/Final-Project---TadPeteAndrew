@@ -1,61 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Votenuity</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="wrapper">
-     <%= render partial: "layouts/nav" %>
 
-    <!-- Shows errors when one is present -->
+<head>
+  <title>Votenuity</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+      <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="wrapper">
+    <%= render partial: "layouts/nav" %>
+
+      <!-- Shows errors when one is present -->
       <div class="container" id="background">
         <div class="text-center" id="flash_hook">
           <% if flash[:error] %>
-            <p class='error'><%=h flash[:error] %></p>
-          <% end %>
-          <% if flash[:notice] %>
-            <p class='notice'><%=h flash[:notice] %></p>
-          <% end %>
+            <p class='error'>
+              <%=h flash[:error] %>
+            </p>
+            <% end %>
+              <% if flash[:notice] %>
+                <p class='notice'>
+                  <%=h flash[:notice] %>
+                </p>
+                <% end %>
         </div>
 
         <%= yield %>
 
       </div>
-    </div>
+  </div>
 
-    <!-- start footer area -->
-    <footer class="footer-distributed">
+  <%= render partial: "layouts/footer" %>
 
-			<div class="footer-left">
+</body>
 
-				<p class="footer-links">
-					<%= link_to "Home", root_path %>
-					·
-          <%= link_to "Legislators", legislators_path %>
-					·
-          <% if user_signed_in? %>
-					<%= link_to "Update Account", edit_user_registration_path %>
-          <% end %>
-					·
-					<%= link_to "About Us", root_path %>
-					·
-					<%= link_to "Contact Us", root_path %>
-				</p>
-          <p class="footer-company-name">Votenuity &copy; 2015</p>
-      </div>
-
-			<div class="footer-right">
-        <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
-        <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search...', :autocomplete => :off, class: "form-control"  %>
-        <%= submit_tag "Search", class: "btn btn-danger" %>
-        <% end %>
-      </div>
-
-		</footer>
-    <!-- End footer area -->
-
-  </body>
 </html>

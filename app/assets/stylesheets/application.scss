@@ -37,6 +37,9 @@ p {
   color: white !important;
   font-size: 16px;
 }
+.search-bills {
+  margin-top: 20px;
+}
 .outer-scroll {
   height: 500px;
 }
@@ -91,6 +94,7 @@ h4 {
 }
 .candidate_percentages {
   margin-top: 20px;
+  margin-bottom: 20px;
   border: 4px solid #00688b;
   font-size: 22px;
   background-color: white;
@@ -109,7 +113,7 @@ h4 {
   background-color: #f0f0f0;
   padding: 0 45px;
   border-radius: 10px 10px 10px 10px !important;
-  min-height: 1450px;
+  padding-bottom: 35px;
 }
 #runner-info {
   margin-top: 20px;
@@ -405,20 +409,6 @@ label {
 /* The search form */
 .footer-distributed form {
   position: relative;
-}
-.footer-distributed form input {
-  display: block;
-  border-radius: 3px;
-  box-sizing: border-box;
-  background-color: #f0f0f0;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  font: inherit;
-  font-size: 14px;
-  font-weight: normal;
-  color: #d1d2d2;
-  width: 500px;
-  padding: 18px 50px 18px 18px;
 }
 .footer-distributed form input:focus {
   outline: none;

@@ -1,4 +1,11 @@
-<h1 class="text-center"> Listing Bills for <%= params[:session] || "All Sessions" %></h1><br>
+<ul class="list-inline list-unstyled">
+<li><h1 class="text-center" style="margin-left:310px;"> Listing Bills for <%= params[:session] || "All Sessions" %></h1></li>
+<li class="pull-right"><%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
+<%= text_field_tag :search_item, params[:search_item], placeholder: 'Search...', :autocomplete => :off, class: "form-control"  %>
+<%= submit_tag "Search", class: "btn-sm btn-danger search-bills" %></li>
+<% end %>
+</ul>
+<br>
   <div class="row bill-row">
     <% @bills.each do |bill| %>
       <div class="col-xs-3 bill-list">
