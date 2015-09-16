@@ -140,14 +140,20 @@ ralph = User.create(:email => 'Ralph@Nader.com',
             )
 
 Race.create(:title => "The First District Race",
+            :summary => "A major upset for Republicans as Sanders passes Trump.",
+            :body => "With four candidates in the field, Lincoln received only 40% of the popular vote and 180 electoral votes — enough to narrowly win the crowded election. This meant that 60% of the voters selected someone other than Lincoln. With the results tallied, the question was, would the South accept the outcome? A few weeks after the election, South Carolina seceded from the Union.",
             :district => 1
             )
 
 Race.create(:title => "The Second District Race",
+            :summary => "Ventura showing major promise as he pulls a win over the California primaries.",
+            :body => "A number of aging politicians and distinguished citizens, calling themselves the CONSTITUTIONAL UNION PARTY, nominated JOHN BELL of Tennessee, a wealthy slaveholder as their candidate for President. These people were for moderation. They decided that the best way out of the present difficulties that faced the nation was to take no stand at all on the issues that divided the north and the south.",
             :district => 2
             )
 
 Race.create(:title => "The Third District Race",
+            :summary => "Fiorina creating a stir with recent debate pulls her out front in polls.",
+            :body => "",
             :district => 3
             )
 

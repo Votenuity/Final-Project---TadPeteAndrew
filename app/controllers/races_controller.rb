@@ -23,4 +23,5 @@ class RacesController < ApplicationController
   def set_race
     @race = Race.find_by_id(params[:id])
   end
+  
 end

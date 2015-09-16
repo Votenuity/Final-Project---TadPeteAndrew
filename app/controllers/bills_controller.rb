@@ -55,7 +55,7 @@ class BillsController < ApplicationController
       elsif params[:session] == "2014"
         @bills = Bill.where(session: "2014")
       elsif params[:session] != "2015" || "2014"
-        redirect_to root_path, notice: "You must specify session 2014 or 2015."
+        params[:session] = nil
         @bills = Bill.all
       else
         @bills = Bill.all
