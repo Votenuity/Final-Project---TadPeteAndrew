@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   ROLES = %w(voter admin candidate)
 
-  # pulls a the statements by the candidate from the db from that issue.
+  # pulls all the statements by the candidate from the db for that issue.
   def statement_by_issue(issue)
     statements.joins(:issues).where('issues.name = ?', issue).first.try(:stance)
   end

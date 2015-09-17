@@ -26,6 +26,7 @@ p {
   margin: 5px;
   text-shadow: 20px lightgray;
 }
+
 .thumb {
     margin-bottom: 30px;
 }
@@ -37,8 +38,11 @@ p {
   color: white !important;
   font-size: 16px;
 }
+.navbar-right {
+  margin-right: 0px;
+}
 .navbar-form .form-control {
-  width: 120px;
+  width: 145px;
 }
 .search-bills {
   margin-top: 20px;
@@ -63,7 +67,7 @@ p {
 
 }
 .navbar > .container .navbar-brand {
-  margin-left: -145%;
+  margin-left: -245%;
   padding-left: 80px;
 }
 .navbar-inverse .navbar-link {
