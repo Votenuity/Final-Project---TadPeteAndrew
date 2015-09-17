@@ -22,6 +22,8 @@ class LegislatorGrabber
   # Turns JSON response into array of hashes all the way through
   def parse_me(json_obj)
 
+
+
     # Error handling remnant
     begin
       puts json_obj.inspect
@@ -29,6 +31,8 @@ class LegislatorGrabber
     rescue JSON::ParserError, TypeError => e
       []
     end
+
+
 
   end
 
@@ -55,6 +59,7 @@ class LegislatorGrabber
     # Grabs JSON from API, using only endpoint, parses in to array of hashes
     leg_hash = parsed("https://api.iga.in.gov/#{cur_session.to_s}/legislators?per_page=160")
 
+    a = 1
 
     # Assigns each house member to a spot in the database
     leg_hash[:items].each do |house|
@@ -66,7 +71,11 @@ class LegislatorGrabber
       next if house[:link] == "/2015/legislators/woody_burton_235"
       next if house[:link] == "/2015/legislators/jud_mcmillin_1032"
 
-      # All API Calls
+      next if Legislator.exists?(:fullName => house[:fullName])
+
+      puts a
+
+      # All API Calls for detail
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
 
@@ -96,6 +105,8 @@ class LegislatorGrabber
                         )
 
 
+      a = a + 1
+
     end
 
   end
@@ -107,6 +118,8 @@ class LegislatorGrabber
     all_bills_hash[:items].each do |item|
 
       all_bills_session_details = parsed("https://api.iga.in.gov/#{item[:link]}")
+
+      next if Bill.exists?(:link => all_bills_session_details[:link])
 
       Bill.create(session: all_bills_session_details[:latestVersion][:year],
                         title: all_bills_session_details[:latestVersion][:title],
