@@ -1,7 +1,8 @@
 <ul class="clearfix list-unstyled">
-<li><h1 class="text-center"> Listing Search results in Bills for <%=params[:search_bill]%></h1></li>
+<li><h1 class="text-center">
+  Listing Search results in Bills for <%=params[:search_bill]%></h1></li>
 <li class="search_bar"><%= form_tag bills_path, :method => :get, class: "form-inline" do %>
-<%= text_field_tag :search_bill, params[:search_bill], placeholder: 'Search Bills', class: "form-control_bills", :autocomplete => :off%>
+<%= text_field_tag :search_bill, params[:search_bill], placeholder: 'Search Bills', class: "form-control_bills", :autocomplete => :off  %>
 <%= submit_tag "Search", class: "btn-xs btn-danger search-bills" %></li>
 <% end %>
 </ul>
