@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'users/follow' => 'users#follow', as: :follow
   post 'users/unfollow' => 'users#unfollow', as: :unfollow
 
+  get 'bills/:session/:billName' => 'bills#show', as: :sessioned_bill
+
   root 'welcome#index'
 
 end
