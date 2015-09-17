@@ -66,6 +66,9 @@ class LegislatorGrabber
       next if house[:link] == "/2015/legislators/woody_burton_235"
       next if house[:link] == "/2015/legislators/jud_mcmillin_1032"
 
+      next if Legislator.exists?(:fullName => house[:fullName])
+
+
       # All API Calls
 
       leg_hash_detail = parsed("https://api.iga.in.gov#{house[:link]}")
