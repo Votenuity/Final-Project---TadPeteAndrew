@@ -7,7 +7,7 @@ class Legislator < ActiveRecord::Base
   end
 
   def shortDescription(bill)
-    Bill.where(billName: bill).first["shortDescription"]
+    Bill.where(billName: bill).where(session: self.session).first["shortDescription"]
   end
 
 end
