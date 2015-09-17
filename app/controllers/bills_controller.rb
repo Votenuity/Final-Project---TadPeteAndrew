@@ -75,7 +75,7 @@ class BillsController < ApplicationController
     end
 
     def set_bill
-      @bill = Bill.find(params[:billName][:session])
+      @bill = Bill.where(:session => params[:session]).where(:billName => params[:billName]).first
     end
 
     def bill_params

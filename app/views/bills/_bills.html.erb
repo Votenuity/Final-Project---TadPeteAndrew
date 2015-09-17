@@ -13,7 +13,7 @@
     <% @bills.each do |bill| %>
       <div class="col-xs-3 bill-list">
         <ul class="list-unstyled" style="height:150px; overflow:hidden;">
-          <li><h3 class="text-center bill-title"><%= link_to bill.billName, bill_path(bill.billName, bill.session) %></h3></li><br>
+          <li><h3 class="text-center bill-title"><%= link_to bill.billName, sessioned_bill_path(bill.session, bill.billName) %></h3></li><br>
           <li class="text-center"><%= bill.title == "NoneNone" ? "Untitled Bill" : bill.title %></li>
           <li class='text-center'><%= bill.shortDescription %></li>
           <br>
