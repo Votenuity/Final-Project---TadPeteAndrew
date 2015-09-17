@@ -1,7 +1,5 @@
 <nav class="navbar navbar-inverse" role="navigation">
-
-   <div class="pull-left"><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></div>
-
+  <div class="pull-left"><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></div>
     <div id="navbar">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && current_user.role == "admin" %>
