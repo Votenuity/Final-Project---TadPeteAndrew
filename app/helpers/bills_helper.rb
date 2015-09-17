@@ -27,5 +27,13 @@ module BillsHelper
       "Advisors:"
     end
   end
-  
+
+  def index_logic
+    if params[:search_bill]
+      render partial: 'bills/bill_search_results'
+    else
+      render partial: 'bills/bills'
+    end
+  end
+
 end

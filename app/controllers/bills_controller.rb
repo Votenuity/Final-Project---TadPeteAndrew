@@ -2,7 +2,11 @@ class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:search_bill]
+      @search = Bill.search_by_info(params[:search_bill])
+    else
     sessions_for_bills
+    end
   end
 
   def show
