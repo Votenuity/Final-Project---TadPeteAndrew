@@ -1,10 +1,9 @@
 <nav class="navbar navbar-inverse" role="navigation">
-  <div class="container" id="nav-top">
 
+   <div class="pull-left"><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></div>
 
     <div id="navbar">
       <ul class="nav navbar-nav navbar-right">
-         <li class="pull-left"><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></li>
         <% if user_signed_in? && current_user.role == "admin" %>
         <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: 'navbar-link' %></li>
         <% end %>
@@ -27,5 +26,4 @@
         <% end %>
       </ul>
     </div>
-  </div>
 </nav>
