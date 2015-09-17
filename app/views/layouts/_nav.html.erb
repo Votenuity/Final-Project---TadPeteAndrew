@@ -1,18 +1,13 @@
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container" id="nav-top">
-    <div class="navbar-header">
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></li>
-        <% if user_signed_in? && current_user.role == "admin" %>
-        <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: 'navbar-link' %></li>
-        <% end %>
-      </ul>
-    </div>
-
 
 
     <div id="navbar">
       <ul class="nav navbar-nav navbar-right">
+         <li class="pull-left"><%= link_to "Votenuity™", root_path, class: "navbar-brand" %></li>
+        <% if user_signed_in? && current_user.role == "admin" %>
+        <li><%= link_to "Admin Dashboard", rails_admin.dashboard_path, class: 'navbar-link' %></li>
+        <% end %>
         <li><%= link_to "Bills", bills_path %></li>
         <li><%= link_to "Legislators", legislators_path %></li>
         <li><%= render partial: "layouts/dropdown" %></li>
@@ -26,8 +21,8 @@
         <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link' %></li>
         <li><%= link_to "Sign In", user_session_path, :class => 'navbar-link' %></li>
         <% end %>
-        <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
-        <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search Legislators', :autocomplete => :off, class: "form-control"  %>
+        <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-right" do %>
+        <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search Legislators', :autocomplete => :off, class: "form-control pull"  %>
         <%= submit_tag "Search", class: "btn btn-danger" %>
         <% end %>
       </ul>

@@ -37,6 +37,9 @@ p {
   color: white !important;
   font-size: 16px;
 }
+.navbar-form .form-control {
+  width: 120px;
+}
 .search-bills {
   margin-top: 20px;
 }
@@ -126,6 +129,7 @@ h4 {
   padding: 0 45px;
   border-radius: 10px 10px 10px 10px !important;
   padding-bottom: 35px;
+  min-height: 800px;
 }
 #runner-info {
   margin-top: 20px;
