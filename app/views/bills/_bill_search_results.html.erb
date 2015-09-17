@@ -1,21 +1,27 @@
 <ul class="clearfix list-unstyled">
-<li><h1 class="text-center"> Listing Search results in Bills for <%=params[:search_bill]%></h1></li>
+  <% if params[:search_bill] %>
+    <li><h1 class="text-center"> Listing Search Results in Bills for <%=params[:search_bill] %></h1></li>
+  <% else %>
+    <li><h1 class="text-center">Listing Bills for All Sessions</h1></li>
+  <% end %>
 <li class="search_bar"><%= form_tag bills_path, :method => :get, class: "form-inline" do %>
 <%= text_field_tag :search_bill, params[:search_bill], placeholder: 'Search Bills', class: "form-control_bills", :autocomplete => :off%>
 <%= submit_tag "Search", class: "btn-xs btn-danger search-bills" %></li>
 <% end %>
 </ul>
 <br>
-<div class="row bill-row">
-  <% @bills.each do |hash| %>
-    <div class="col-xs-3 bill-list">
-      <ul class="list-unstyled" style="height:150px; overflow:hidden;">
-        <li><h3 class="text-center bill-title"><%= link_to hash["billName"].sub("/bills/", ''), bill_path(hash["billName"]) %></h3></li><br>
-        <li class="text-center"><%= hash["title"] %></li>
-        <li class='text-center'><%= hash["shortDescription"] %></li>
-        <br>
-      </ul>
-      <br>
-    </div>
-  <%end%>
-</div>
+
+  <div class="row bill-row">
+
+      <% @search.each do |bill| %>
+        <div class="col-xs-3 bill-list">
+          <ul class="list-unstyled" style="height:150px; overflow:hidden;">
+            <li><h3 class="text-center bill-title"><%= link_to bill.billName, bill_path(bill.link) %></h3></li><br>
+            <li class="text-center"><%= bill.title == "NoneNone" ? "Untitled Bill" : bill.title %></li>
+            <li class='text-center'><%= bill.shortDescription %></li>
+            <br>
+          </ul>
+          <br>
+        </div>
+      <%end%>
+  </div>

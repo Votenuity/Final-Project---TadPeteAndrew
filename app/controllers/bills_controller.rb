@@ -4,8 +4,16 @@ class BillsController < ApplicationController
   def index
     if params[:search_bill]
       @search = Bill.search_by_info(params[:search_bill])
+      if @search.blank?
+        respond_to do |format|
+          format.html {
+            flash[:notice] = 'We were unable to locate your search results'
+            redirect_to(:controller => 'bills', :action => 'index')
+          }
+        end
+      end
     else
-    sessions_for_bills
+      sessions_for_bills
     end
   end
 
@@ -67,7 +75,7 @@ class BillsController < ApplicationController
     end
 
     def set_bill
-      @bill = Bill.find_by_billName(params[:id])
+      @bill = Bill.find(params[:billName][:session])
     end
 
     def bill_params

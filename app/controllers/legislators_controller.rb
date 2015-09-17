@@ -5,6 +5,10 @@ class LegislatorsController < ApplicationController
     if params[:search_item]
       @legislators15 = Legislator.search_by_full_name(params[:search_item]).where(session: "2015")
       @legislators14 = Legislator.search_by_full_name(params[:search_item]).where(session: "2014")
+        if @legislators15.blank? && @legislators14.blank?
+          flash[:notice] = 'We were unable to locate your search results'
+          redirect_to :back
+        end
     else
       @legislators15 = Legislator.where(session: "2015").order(lastName: :asc)
       @legislators14 = Legislator.where(session: "2014").order(lastName: :asc)
