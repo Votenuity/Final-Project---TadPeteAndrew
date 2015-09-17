@@ -15,6 +15,7 @@ class LegislatorGrabber
     HTTParty.get(end_point,
       :headers => {"Accept" => "application/vnd.myiga.v1+json",
       "Authorization" => ENV["iga_token"]},
+      :timeout => 120,
       :verify => false)
 
   end
@@ -71,7 +72,7 @@ class LegislatorGrabber
       next if house[:link] == "/2015/legislators/woody_burton_235"
       next if house[:link] == "/2015/legislators/jud_mcmillin_1032"
 
-      next if Legislator.exists?(:fullName => house[:fullName])
+      # next if Legislator.exists?(:fullName => house[:fullName])
 
       puts a
 
@@ -88,7 +89,7 @@ class LegislatorGrabber
 
       # Creates Legislators from API stream
 
-      Legislator.create(session: cur_session.to_s,
+      Legislator.create!(session: cur_session.to_s,
                         position_title: house[:position_title],
                         firstName: house[:firstName],
                         lastName: house[:lastName],
@@ -119,7 +120,7 @@ class LegislatorGrabber
 
       all_bills_session_details = parsed("https://api.iga.in.gov/#{item[:link]}")
 
-      next if Bill.exists?(:link => all_bills_session_details[:link])
+      # next if Bill.exists?(:link => all_bills_session_details[:link])
 
       Bill.create(session: all_bills_session_details[:latestVersion][:year],
                         title: all_bills_session_details[:latestVersion][:title],
