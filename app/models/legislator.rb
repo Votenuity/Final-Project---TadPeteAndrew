@@ -14,12 +14,4 @@ class Legislator < ActiveRecord::Base
     Bill.where(billName: bill).first["shortDescription"]
   end
 
-  def self.search(search_item)
-    if search_item.present?
-      search(search_item)
-    else
-      scoped
-    end
-  end
-
 end
