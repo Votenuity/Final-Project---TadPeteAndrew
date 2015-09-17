@@ -67,7 +67,7 @@ class BillsController < ApplicationController
     end
 
     def set_bill
-      @bill = Bill.find_by_billName(params[:id])
+      @bill = Bill.find_by_link(params[:id])
     end
 
     def bill_params

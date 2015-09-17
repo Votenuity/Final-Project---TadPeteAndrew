@@ -11,7 +11,11 @@ class Legislator < ActiveRecord::Base
   end
 
   def shortDescription(bill)
-    Bill.where(billName: bill).first["shortDescription"]
+    if self.session == "2015"
+      Bill.where(billName: bill).first["shortDescription"]
+    else
+      Bill.where(billName: bill).last["shortDescription"]
+    end
   end
 
 end
