@@ -10,7 +10,7 @@ module UsersHelper
 
   def image_check_show
     if @user.profile_image.blank? || @user.profile_image.nil?
-      @user.avatar.url(:medium)
+      @user.avatar.url(:medium, timestamp: false)
     else
       @user.profile_image
     end
