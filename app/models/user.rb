@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :if => :active_or_first_name?
   validates_presence_of :last_name, :if => :active_or_last_name?
   validates_presence_of :bio, :if => :active_or_bio?
-  validates_presence_of :avatar || :profile_image, :if => :active_or_avatar_or_profile_image?
+  validates_presence_of :avatar, :unless => :profile_image?, :if => :active_or_avatar_or_profile_image?
   validates_presence_of :party, :if => :active_or_party?
 
   ROLES = %w(voter admin candidate)
@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def active_or_avatar_or_profile_image?
-    status.include?('name') || status.include?('profile_image') || active?
+    status.include?('name') || active?
   end
 
   def active_or_party?
