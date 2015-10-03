@@ -287,7 +287,7 @@ h4 {
 #runner-follow {
   border-radius: 10px;
 }
-#right-sidebar {
+.right-sidebar {
   position: relative;
   margin-top: 18px;
   margin-right: 19px;
@@ -523,3 +523,9 @@ label {
 		top:-20px;
 		width: 100%;
 	}
+
+  @media screen and (max-width:480px){
+      .right-sidebar{
+          display:none;
+      }
+  }
