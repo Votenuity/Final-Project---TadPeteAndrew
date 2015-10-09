@@ -29,7 +29,7 @@
               <li><%= link_to "Sign In", user_session_path, :class => 'navbar-link' %></li>
               <% end %>
               <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-right" do %>
-              <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search Legislators', :autocomplete => :off, class: "hiddenform-control pull"  %>
+              <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search Legislators', :autocomplete => :off, class: "hiddenform-control pull hidden-xs"  %>
               <%= submit_tag "Search", class: "btn btn-danger hidden-xs" %>
               <% end %>
             </ul>
