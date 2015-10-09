@@ -1,5 +1,6 @@
 <div class="text-center">
   <h1 class=""><strong><%= @race.title %></strong></h1>
+  <%= link_to possessive_message(@race.title), race_forum_path(race_id: @race.id) %>
 </div>
 
 <%= render partial: "races/runner" %>

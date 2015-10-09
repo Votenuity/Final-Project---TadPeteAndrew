@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916130827) do
+ActiveRecord::Schema.define(version: 20151009042300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20150916130827) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
+  create_table "forum_topics", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "forum_id"
+    t.string   "title"
+    t.integer  "user_id"
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "race_id"
+  end
+
   create_table "issues", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -72,6 +86,15 @@ ActiveRecord::Schema.define(version: 20150916130827) do
     t.hstore   "committees",        default: [],              array: true
     t.string   "leg_pic_url",       default: ""
     t.string   "session",           default: ""
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "forum_topic_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

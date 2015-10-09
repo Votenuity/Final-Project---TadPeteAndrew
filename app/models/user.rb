@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: '200x200>', thumb: '100x100>' }
   has_many :statements
+  has_many :forum_topics
+  has_many :messages
   belongs_to :race
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   devise :database_authenticatable, :registerable,
