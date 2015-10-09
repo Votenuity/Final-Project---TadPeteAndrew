@@ -14,7 +14,7 @@
       <p class="footer-company-name">Votenuity &copy; 2015</p>
   </div>
 
-	<div class="footer-right">
+	<div class="footer-right hidden-xs">
     <%= form_tag legislators_path(:search_item), :method => :get, class: "navbar-form navbar-left" do %>
     <%= text_field_tag :search_item, params[:search_item], placeholder: 'Search Legislators', :autocomplete => :off, class: "form-control"  %>
     <%= submit_tag "Search", class: "btn-sm btn-danger" %>

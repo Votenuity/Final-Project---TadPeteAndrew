@@ -62,14 +62,10 @@ class BillsController < ApplicationController
   private
 
     def sessions_for_bills
-      if params[:session] == "2015"
-        @bills = Bill.where(session: "2015")
-      elsif params[:session] == "2014"
-        @bills = Bill.where(session: "2014")
-      elsif params[:session] != "2015" || "2014"
+      if params[:session] == "2015" || params[:session] == "2014"
+        @bills = Bill.where(session: params[:session])
+      else 
         params[:session] = nil
-        @bills = Bill.all
-      else
         @bills = Bill.all
       end
     end
